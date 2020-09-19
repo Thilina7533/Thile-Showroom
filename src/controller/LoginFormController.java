@@ -1,6 +1,9 @@
 package controller;
 
+import animatefx.animation.Bounce;
 import animatefx.animation.FadeIn;
+import animatefx.animation.FadeInDownBig;
+import animatefx.animation.Jello;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -35,12 +38,14 @@ public class LoginFormController {
                     && password.equals("2259")) {
                 Stage window = (Stage) this.root.getScene().getWindow();
                 window.setScene(new Scene(FXMLLoader.load(this.getClass()
-                        .getResource("/view/Dashboard.fxml"))));
-                window.centerOnScreen();
+                        .getResource("/view/Dashboard.fxml"))));window.centerOnScreen();
+
+
 
             } else {
                 new Alert(Alert.AlertType.WARNING, "Try Again!",
                         ButtonType.OK).show();
+
             }
         } else {
             new Alert(Alert.AlertType.WARNING, "User Name Or Password Empty!",

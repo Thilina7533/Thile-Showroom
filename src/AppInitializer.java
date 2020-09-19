@@ -1,3 +1,4 @@
+import animatefx.animation.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,6 +27,7 @@ public class AppInitializer extends Application {
             primaryStage.initStyle(StageStyle.TRANSPARENT);
             primaryStage.setScene(scene);
             primaryStage.show();
+            new FadeInDownBig(root).play();
             scene.setFill(Color.TRANSPARENT);
             root.setOnMousePressed(event -> {
                 xOffset = event.getSceneX();

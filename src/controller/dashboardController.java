@@ -1,7 +1,7 @@
 package controller;
 
 
-import animatefx.animation.FadeIn;
+import animatefx.animation.*;
 import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +16,7 @@ public class dashboardController {
     public Pane context;
 
 
+
     private void setUi(String location) throws IOException {
         context.getChildren().clear();
         context.getChildren().add(FXMLLoader.load(this.getClass().
@@ -24,15 +25,19 @@ public class dashboardController {
 
     public void DashBoardOnAction(ActionEvent actionEvent) throws IOException {
         setUi("DashboardForm");
+        new Flash(context).play();
+
     }
 
     public void AddItemOnAction(ActionEvent actionEvent) throws IOException {
         setUi("AddItemForm");
-//        oiiafipiw
+        new Flip(context).play();
+
     }
 
     public void btnAddCashier(ActionEvent actionEvent) throws IOException {
         setUi("AddCashierForm");
+        new FadeInUp(context).play();
     }
 
 
@@ -43,6 +48,7 @@ public class dashboardController {
 
     public void btnAddCustomer(ActionEvent actionEvent) throws IOException {
         setUi("AddCustomerForm");
+        new BounceIn(context).play();
     }
 
     public void btnCloaseOnAction(ActionEvent actionEvent) {
