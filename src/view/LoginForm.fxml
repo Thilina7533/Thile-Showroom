@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="787.0" prefWidth="936.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
+   <children>
+      <AnchorPane layoutX="23.0" layoutY="34.0" prefHeight="519.0" prefWidth="606.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="47.0">
+         <children>
+            <AnchorPane layoutX="327.0" layoutY="32.0" maxWidth="551.0" prefHeight="599.0" prefWidth="551.0" style="-fx-background-color: white; -fx-background-radius: 1em;" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="327.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="32.0">
+               <children>
+                  <Label layoutX="105.0" layoutY="116.0" prefHeight="27.0" prefWidth="200.0" text="Sign In To Continue" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="223.0" AnchorPane.topAnchor="116.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="txtUserName" focusColor="#4ffbca" labelFloat="true" layoutX="142.0" layoutY="202.0" prefHeight="40.0" prefWidth="269.0" promptText="User Name" text="thilina" unFocusColor="BLACK" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="117.0" />
+                  <JFXPasswordField fx:id="txtPassword" focusColor="#4ffbca" labelFloat="true" layoutX="139.0" layoutY="293.0" prefHeight="40.0" prefWidth="269.0" promptText="Password" text="2259" unFocusColor="BLACK" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="120.0" />
+                  <JFXButton fx:id="btnSignIn" buttonType="RAISED" layoutX="159.0" layoutY="406.0" onAction="#LoginOnAction" prefHeight="67.0" prefWidth="229.0" ripplerFill="WHITE" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0); -fx-background-radius: 30;" text="Sign In" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font></JFXButton>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="73.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/user.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="49.0" layoutX="73.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/password.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="105.0" layoutY="62.0" prefHeight="67.0" prefWidth="244.0" text="WELCOME BACK,">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="82.0" fitWidth="71.0" layoutX="57.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/logo1.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton fx:id="btnCLose" layoutX="488.0" layoutY="14.0" onAction="#btnCloaseOnAction" prefHeight="44.0" prefWidth="40.0" style="-fx-background-radius: 30;" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/close.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            <AnchorPane layoutX="14.0" layoutY="-26.0" prefHeight="714.0" prefWidth="334.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);; -fx-background-radius: 1em;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="-26.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <ImageView fitHeight="191.0" fitWidth="194.0" layoutX="75.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/logo2.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
