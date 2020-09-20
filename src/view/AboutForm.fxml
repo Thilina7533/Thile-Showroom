@@ -105,5 +105,10 @@
             <Image url="@../resources/Tweeter.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="268.0" fitWidth="261.0" layoutX="818.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/CompanyLogo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
