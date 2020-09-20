@@ -3,6 +3,8 @@ package controller;
 
 import animatefx.animation.*;
 
+import animatefx.util.ParallelAnimationFX;
+import animatefx.util.SequentialAnimationFX;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 
@@ -57,12 +59,15 @@ public class dashboardController {
         setUi("AboutForm");
         new RotateIn(context).play();
     }
+    public void btnSuplayerOnAction(ActionEvent actionEvent) throws IOException {
+        setUi("AddSuply");
+        new RubberBand(context).play();
+    }
 
     public void btnCloaseOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) context.getScene().getWindow();
         stage.close();
     }
-
 
 }
 

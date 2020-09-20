@@ -21,7 +21,7 @@
                   <Image url="@../resources/logo2.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="dtnDashBoard" buttonType="RAISED" onAction="#DashBoardOnAction" prefHeight="108.0" prefWidth="184.0" text="DASHBOARD  " textFill="WHITE">
+            <JFXButton fx:id="dtnDashBoard" buttonType="RAISED" onAction="#DashBoardOnAction" prefHeight="87.0" prefWidth="184.0" text="DASHBOARD  " textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="41.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -33,7 +33,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" onAction="#btnAddCashier" prefHeight="108.0" prefWidth="184.0" text="NEW CASHIER " textFill="WHITE">
+            <JFXButton buttonType="RAISED" onAction="#btnAddCashier" prefHeight="88.0" prefWidth="184.0" text="NEW CASHIER " textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="41.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -45,7 +45,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" onAction="#btnReportOnAction" prefHeight="108.0" prefWidth="186.0" text="ALL REPORTS " textFill="WHITE">
+            <JFXButton buttonType="RAISED" onAction="#btnReportOnAction" prefHeight="90.0" prefWidth="185.0" text="ALL REPORTS " textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -57,7 +57,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" onAction="#btnAddCustomer" prefHeight="108.0" prefWidth="184.0" text="CUSTOMERS  " textFill="WHITE">
+            <JFXButton buttonType="RAISED" onAction="#btnAddCustomer" prefHeight="94.0" prefWidth="184.0" text="CUSTOMERS  " textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -69,7 +69,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" onAction="#AddItemOnAction" prefHeight="108.0" prefWidth="184.0" text="ADD ITEM     " textFill="WHITE">
+            <JFXButton buttonType="RAISED" onAction="#AddItemOnAction" prefHeight="88.0" prefWidth="184.0" text="ADD ITEM     " textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="41.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -81,7 +81,19 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" onAction="#btnAboutOnAction" prefHeight="108.0" prefWidth="184.0" text=" ABOUT        " textFill="WHITE">
+            <JFXButton buttonType="RAISED" onAction="#btnSuplayerOnAction" prefHeight="99.0" prefWidth="184.0" text="SUPLAYER  " textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/suply.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" onAction="#btnAboutOnAction" prefHeight="90.0" prefWidth="184.0" text=" ABOUT        " textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="43.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -95,7 +107,7 @@
             </JFXButton>
             <Pane prefHeight="85.0" prefWidth="185.0">
                <children>
-                  <JFXButton buttonType="RAISED" layoutY="2.0" onAction="#btnLogOut" prefHeight="81.0" prefWidth="185.0" style="-fx-background-color: black;" text="LOGOUT" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutY="8.0" onAction="#btnLogOut" prefHeight="5.0" prefWidth="185.0" style="-fx-background-color: black;" text="LOGOUT" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="32.0" />
                      </font>
