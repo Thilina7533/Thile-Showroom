@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="908.0" prefWidth="1226.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AboutFormFormController">
+   <children>
+      <ImageView fitHeight="152.0" fitWidth="169.0" layoutX="536.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/BlackLogo.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="-1.0" layoutY="-3.0" prefHeight="78.0" prefWidth="1226.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);" />
+      <Label layoutX="437.0" layoutY="302.0" prefHeight="31.0" prefWidth="365.0" text="Tile Showroom Managment System">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="558.0" layoutY="333.0" prefHeight="31.0" prefWidth="111.0" text="Version 1.0.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="381.0" layoutY="362.0" prefHeight="31.0" prefWidth="474.0" text="Copyright © 2020 Kithsiri Tile Showroom. All Rights Reserved">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="264.0" layoutY="423.0" text="A  Program  for manage  production of T&amp;R Software Solution  (PVT) LTD,">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="259.0" layoutY="454.0" text="This software provides to manage daily operations of sales  and customers">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="329.0" layoutY="504.0" text="And this made for 1st semester final project of IJSE 55 Batch">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="264.0" layoutY="573.0" text="These are the facilities of this software,">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="265.0" layoutY="615.0" prefHeight="31.0" prefWidth="342.0" text="- View Daily Sales">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="264.0" layoutY="643.0" prefHeight="31.0" prefWidth="342.0" text="- Manage Customers">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="264.0" layoutY="671.0" prefHeight="31.0" prefWidth="342.0" text="- Manage Items">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="264.0" layoutY="701.0" prefHeight="31.0" prefWidth="342.0" text="- Manage Cashiers">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="265.0" layoutY="732.0" prefHeight="31.0" prefWidth="368.0" text="- View Cashiers Progress &amp; Much More.">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="422.0" layoutY="819.0" text="Contact Us">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="554.0" layoutY="815.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/Facebook.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="606.0" layoutY="815.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/instergram.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="656.0" layoutY="815.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/LinkedIn.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="706.0" layoutY="815.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/Youtube.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="759.0" layoutY="815.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/Tweeter.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

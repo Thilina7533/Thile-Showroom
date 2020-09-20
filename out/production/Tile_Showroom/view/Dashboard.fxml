@@ -45,7 +45,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" prefHeight="108.0" prefWidth="186.0" text="ALL REPORTS " textFill="WHITE">
+            <JFXButton buttonType="RAISED" onAction="#btnReportOnAction" prefHeight="108.0" prefWidth="186.0" text="ALL REPORTS " textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -81,11 +81,11 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" prefHeight="108.0" prefWidth="184.0" text="HELP             " textFill="WHITE">
+            <JFXButton buttonType="RAISED" onAction="#btnAboutOnAction" prefHeight="108.0" prefWidth="184.0" text=" ABOUT        " textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="43.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/help.png" />
+                        <Image url="@../resources/About.png" />
                      </image>
                   </ImageView>
                </graphic>

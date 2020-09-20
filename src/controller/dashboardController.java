@@ -2,11 +2,10 @@ package controller;
 
 
 import animatefx.animation.*;
-import javafx.embed.swing.JFXPanel;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -50,11 +49,21 @@ public class dashboardController {
         setUi("AddCustomerForm");
         new BounceIn(context).play();
     }
+    public void btnReportOnAction(ActionEvent actionEvent) throws IOException {
+        setUi("Report");
+        new ZoomIn(context).play();
+    }
+    public void btnAboutOnAction(ActionEvent actionEvent) throws IOException {
+        setUi("AboutForm");
+        new RotateIn(context).play();
+    }
 
     public void btnCloaseOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) context.getScene().getWindow();
         stage.close();
     }
+
+
 }
 
 
