@@ -11,5 +11,7 @@
     <orderEntry type="library" name="jfoenix-8.0.7" level="project" />
     <orderEntry type="library" name="io.github.typhon0:AnimateFX:1.2.1" level="project" />
     <orderEntry type="library" name="GNButton-1.1.0" level="project" />
+    <orderEntry type="library" name="fontawesomefx-8.2" level="project" />
+    <orderEntry type="library" name="TrayTester" level="project" />
   </component>
 </module>

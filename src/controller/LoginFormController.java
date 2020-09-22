@@ -1,24 +1,16 @@
 package controller;
 
-import animatefx.animation.Bounce;
-import animatefx.animation.FadeIn;
-import animatefx.animation.FadeInDownBig;
-import animatefx.animation.Jello;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.stage.Window;
+import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 import java.io.IOException;
 
@@ -38,21 +30,35 @@ public class LoginFormController {
                     && password.equals("2259")) {
                 Stage window = (Stage) this.root.getScene().getWindow();
                 window.setScene(new Scene(FXMLLoader.load(this.getClass()
-                        .getResource("/view/Dashboard.fxml"))));window.centerOnScreen();
-
-
+                        .getResource("/view/Dashboard.fxml"))));
+                window.centerOnScreen();
 
             } else {
-                new Alert(Alert.AlertType.WARNING, "Try Again!",
-                        ButtonType.OK).show();
+                String tilte = "Sign In";
+                String message = "Error Username " + "'" + txtUserName.getText() + "'" + ", and Password " + "'" + txtPassword.getText() + "'" + " Wrong";
+                tray.notification.TrayNotification tray = new TrayNotification();
+                AnimationType type = AnimationType.POPUP;
 
+                tray.setAnimationType(type);
+                tray.setTitle(tilte);
+                tray.setMessage(message);
+                tray.setNotificationType(NotificationType.ERROR);
+                tray.showAndDismiss(Duration.millis(3000));
             }
         } else {
-            new Alert(Alert.AlertType.WARNING, "User Name Or Password Empty!",
-                    ButtonType.OK).show();
-        }
+            String tilte = "Sign In";
+            String message = "Empty Username Or Password";
+            tray.notification.TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.POPUP;
 
+            tray.setAnimationType(type);
+            tray.setTitle(tilte);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.millis(3000));
+        }
     }
+
 
     public void btnCloaseOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) root.getScene().getWindow();
