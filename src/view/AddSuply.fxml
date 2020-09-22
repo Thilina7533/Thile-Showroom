@@ -10,47 +10,64 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="908.0" prefWidth="1226.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddSuplyController">
-   <children>
-      <TableView layoutX="14.0" layoutY="465.0" prefHeight="425.0" prefWidth="1201.0" stylesheets="@../css/fullpackstyling.css">
-        <columns>
-          <TableColumn prefWidth="161.0" text="Suplayer ID" />
-            <TableColumn prefWidth="468.0" text="Company Name" />
-            <TableColumn prefWidth="206.0" text="Address" />
-            <TableColumn prefWidth="190.0" text="Phone No" />
-            <TableColumn prefWidth="175.0" text="Email" />
-        </columns>
-      </TableView>
-      <JFXTextField labelFloat="true" layoutX="29.0" layoutY="107.0" prefHeight="31.0" prefWidth="230.0" promptText="Suplayer ID" />
-      <JFXTextField labelFloat="true" layoutX="29.0" layoutY="199.0" prefHeight="31.0" prefWidth="230.0" promptText="Address" />
-      <JFXTextField labelFloat="true" layoutX="29.0" layoutY="311.0" prefHeight="31.0" prefWidth="230.0" promptText="Email" />
-      <JFXTextField labelFloat="true" layoutX="340.0" layoutY="107.0" prefHeight="31.0" prefWidth="230.0" promptText="Company Name" />
-      <JFXTextField labelFloat="true" layoutX="338.0" layoutY="199.0" prefHeight="31.0" prefWidth="230.0" promptText="Phone No" />
-      <JFXButton buttonType="RAISED" layoutX="340.0" layoutY="285.0" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #4b7bec;" text="ADD" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="21.0" />
-         </font></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="104.0" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #fa8231;" text="Search" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="19.0" />
-         </font></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="189.0" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #0fb9b1;" text="Update" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="21.0" />
-         </font></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="267.0" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #485460;" text="Delete" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="23.0" />
-         </font></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="352.0" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #ef5777;" text="Get All" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="21.0" />
-         </font></JFXButton>
-      <ImageView fitHeight="191.0" fitWidth="223.0" layoutX="992.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../resources/BlackLogo.png" />
-         </image>
-      </ImageView>
-      <Pane layoutX="-1.0" layoutY="-3.0" prefHeight="78.0" prefWidth="1226.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);" />
-   </children>
+<AnchorPane prefHeight="908.0" prefWidth="1226.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddSuplyController">
+   <TableView layoutX="14.0" layoutY="465.0" prefHeight="425.0" prefWidth="1201.0"
+              stylesheets="@../css/fullpackstyling.css">
+      <columns>
+         <TableColumn prefWidth="161.0" text="Suplayer ID"/>
+         <TableColumn prefWidth="468.0" text="Company Name"/>
+         <TableColumn prefWidth="206.0" text="Address"/>
+         <TableColumn prefWidth="190.0" text="Phone No"/>
+         <TableColumn prefWidth="175.0" text="Email"/>
+      </columns>
+   </TableView>
+   <JFXTextField labelFloat="true" layoutX="29.0" layoutY="107.0" prefHeight="31.0" prefWidth="230.0"
+                 promptText="Suplayer ID"/>
+   <JFXTextField labelFloat="true" layoutX="29.0" layoutY="199.0" prefHeight="31.0" prefWidth="230.0"
+                 promptText="Address"/>
+   <JFXTextField labelFloat="true" layoutX="29.0" layoutY="311.0" prefHeight="31.0" prefWidth="230.0"
+                 promptText="Email"/>
+   <JFXTextField labelFloat="true" layoutX="340.0" layoutY="107.0" prefHeight="31.0" prefWidth="230.0"
+                 promptText="Company Name"/>
+   <JFXTextField labelFloat="true" layoutX="338.0" layoutY="199.0" prefHeight="31.0" prefWidth="230.0"
+                 promptText="Phone No"/>
+   <JFXButton buttonType="RAISED" layoutX="340.0" layoutY="285.0" prefHeight="57.0" prefWidth="193.0"
+              style="-fx-background-color: #4b7bec;" text="ADD" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="21.0"/>
+      </font>
+   </JFXButton>
+   <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="104.0" prefHeight="57.0" prefWidth="193.0"
+              style="-fx-background-color: #fa8231;" text="Search" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="19.0"/>
+      </font>
+   </JFXButton>
+   <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="189.0" prefHeight="57.0" prefWidth="193.0"
+              style="-fx-background-color: #0fb9b1;" text="Update" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="21.0"/>
+      </font>
+   </JFXButton>
+   <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="267.0" prefHeight="57.0" prefWidth="193.0"
+              style="-fx-background-color: #485460;" text="Delete" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="23.0"/>
+      </font>
+   </JFXButton>
+   <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="352.0" prefHeight="57.0" prefWidth="193.0"
+              style="-fx-background-color: #ef5777;" text="Get All" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="21.0"/>
+      </font>
+   </JFXButton>
+   <ImageView fitHeight="191.0" fitWidth="223.0" layoutX="992.0" layoutY="138.0" pickOnBounds="true"
+              preserveRatio="true">
+      <image>
+         <Image url="@../resources/BlackLogo.png"/>
+      </image>
+   </ImageView>
+   <Pane layoutX="-1.0" layoutY="-3.0" prefHeight="78.0" prefWidth="1226.0"
+         style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);"/>
 </AnchorPane>
