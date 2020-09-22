@@ -16,7 +16,7 @@
 
 <AnchorPane prefHeight="908.0" prefWidth="1226.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardFormController">
    <children>
-      <Pane fx:id="DashPane" layoutX="10.0" layoutY="118.0" prefHeight="268.0" prefWidth="1205.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+      <Pane fx:id="DashPane" layoutX="10.0" layoutY="104.0" prefHeight="273.0" prefWidth="1205.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
          <effect>
             <DropShadow />
          </effect>
@@ -36,20 +36,19 @@
                </opaqueInsets>
             </Label>
          </children></Pane>
-      <Pane layoutX="646.0" layoutY="149.0" prefHeight="28.0" prefWidth="241.0" style="-fx-background-color: #00a8ff;" />
-      <Pane layoutX="51.0" layoutY="150.0" prefHeight="28.0" prefWidth="241.0" style="-fx-background-color: #ffa502;" />
-      <Pane layoutX="343.0" layoutY="150.0" prefHeight="28.0" prefWidth="241.0" style="-fx-background-color: #747d8c;" />
-      <GNButton alignment="TOP_CENTER" layoutX="646.0" layoutY="148.0" prefHeight="207.0" prefWidth="241.0" text="TOTAL CUSTOMERS" transitionColor="#00a8ff">
+      <Pane layoutX="643.0" layoutY="136.0" prefHeight="28.0" prefWidth="241.0" style="-fx-background-color: #00a8ff;" />
+      <GNButton alignment="TOP_CENTER" layoutX="643.0" layoutY="136.0" prefHeight="207.0" prefWidth="241.0" text="TOTAL CUSTOMERS" transitionColor="#00a8ff">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </GNButton>
-      <GNButton alignment="TOP_CENTER" layoutX="343.0" layoutY="149.0" prefHeight="207.0" prefWidth="241.0" text="TOTAL VISITORS" transitionColor="#747d8c">
+      <Pane layoutX="346.0" layoutY="136.0" prefHeight="28.0" prefWidth="241.0" style="-fx-background-color: #747d8c;" />
+      <GNButton alignment="TOP_CENTER" layoutX="346.0" layoutY="136.0" prefHeight="207.0" prefWidth="241.0" text="TOTAL VISITORS" transitionColor="#747d8c">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </GNButton>
-      <ImageView fitHeight="72.0" fitWidth="81.0" layoutX="720.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="72.0" fitWidth="81.0" layoutX="727.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/newcust.png" />
          </image>
@@ -59,12 +58,12 @@
             <Image url="@../resources/sold.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="73.0" fitWidth="72.0" layoutX="429.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="73.0" fitWidth="72.0" layoutX="429.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/visit.png" />
          </image>
       </ImageView>
-      <Label layoutX="742.0" layoutY="293.0" prefHeight="40.0" prefWidth="50.0" text="45">
+      <Label layoutX="745.0" layoutY="281.0" prefHeight="40.0" prefWidth="50.0" text="45">
          <font>
             <Font name="Arial Black" size="27.0" />
          </font>
@@ -72,7 +71,7 @@
             <Insets />
          </opaqueInsets>
       </Label>
-      <Label layoutX="429.0" layoutY="293.0" prefHeight="40.0" prefWidth="82.0" text="5000">
+      <Label layoutX="429.0" layoutY="280.0" prefHeight="40.0" prefWidth="82.0" text="5000">
          <font>
             <Font name="Arial Black" size="27.0" />
          </font>
@@ -96,13 +95,14 @@
             <PieChart fx:id="PieChart" layoutX="707.0" layoutY="22.0" legendSide="TOP" prefHeight="376.0" prefWidth="474.0" title="MONTLY SALES" />
          </children>
       </Pane>
-      <GNButton alignment="TOP_CENTER" layoutX="51.0" layoutY="149.0" prefHeight="207.0" prefWidth="241.0" text="TOTAL SALES" transitionColor="#ffa502">
+      <Pane layoutX="51.0" layoutY="136.0" prefHeight="28.0" prefWidth="241.0" style="-fx-background-color: #ffa502;" />
+      <GNButton alignment="TOP_CENTER" layoutX="51.0" layoutY="136.0" prefHeight="207.0" prefWidth="241.0" text="TOTAL SALES" transitionColor="#ffa502">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </GNButton>
       <Pane prefHeight="78.0" prefWidth="1226.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);" />
-      <Label layoutX="73.0" layoutY="302.0" prefHeight="40.0" prefWidth="221.0" text="RS.538990.00">
+      <Label layoutX="73.0" layoutY="289.0" prefHeight="40.0" prefWidth="221.0" text="RS.538990.00">
          <font>
             <Font name="Arial Black" size="27.0" />
          </font>
@@ -110,10 +110,11 @@
             <Insets />
          </opaqueInsets>
       </Label>
-      <ImageView fitHeight="81.0" fitWidth="82.0" layoutX="133.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="81.0" fitWidth="82.0" layoutX="133.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/sales.png" />
          </image>
       </ImageView>
+      <Pane layoutY="392.0" prefHeight="40.0" prefWidth="1226.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);" />
    </children>
 </AnchorPane>
