@@ -13,5 +13,6 @@
     <orderEntry type="library" name="GNButton-1.1.0" level="project" />
     <orderEntry type="library" name="fontawesomefx-8.2" level="project" />
     <orderEntry type="library" name="TrayTester" level="project" />
+    <orderEntry type="library" name="mysql:mysql-connector-java:8.0.21" level="project" />
   </component>
 </module>

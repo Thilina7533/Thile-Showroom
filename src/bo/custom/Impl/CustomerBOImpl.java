@@ -4,6 +4,7 @@ import bo.custom.CustomerBO;
 import dao.DAOFactory;
 import dao.custom.CustomerDAO;
 import dto.CustomerDTO;
+import entity.Customer;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
@@ -11,8 +12,8 @@ import java.sql.SQLException;
 public class CustomerBOImpl implements CustomerBO {
     CustomerDAO customerDAO = (CustomerDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.CUSTOMER);
     @Override
-    public boolean addCustomer(CustomerDTO customer) throws ClassNotFoundException, SQLException {
-        return false;
+    public boolean addCustomer(CustomerDTO ID) throws ClassNotFoundException, SQLException {
+        return customerDAO.add(new Customer(ID.getCustID(),ID.getCustTital(),ID.getCustName(),ID.getCustPhoneNo(),ID.getCustAddress(),ID.getCustEmail(),ID.getCity(),ID.getProvince(),ID.getRegDate()));
     }
 
     @Override

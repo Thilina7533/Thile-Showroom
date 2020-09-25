@@ -84,7 +84,7 @@
            </items>
         </JFXComboBox>
       <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="29.0" layoutY="247.0" prefHeight="31.0" prefWidth="230.0" promptText="Email" />
-      <JFXTextField fx:id="txtRegDate" labelFloat="true" layoutX="332.0" layoutY="174.0" prefHeight="31.0" prefWidth="230.0" promptText=" Register Date" />
+      <JFXTextField fx:id="txtRegDate" labelFloat="true" layoutX="332.0" layoutY="174.0" prefHeight="31.0" prefWidth="230.0" promptText=" Register Date" text="2020-05-10" />
       <JFXTextField fx:id="txtPhoneNo" labelFloat="true" layoutX="29.0" layoutY="314.0" prefHeight="31.0" prefWidth="230.0" promptText="Phone No" />
     </children>
 </AnchorPane>

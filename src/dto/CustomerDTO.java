@@ -8,7 +8,26 @@ import javafx.scene.control.SingleSelectionModel;
 import java.util.Date;
 
 public class CustomerDTO {
-    public CustomerDTO(JFXTextField txtcustID, JFXTextField txtcustName, JFXComboBox txtcustTital, JFXTextField txtPhoneNo, JFXTextField txtEmail, JFXTextField txtcustAddress, JFXTextField txtcity, JFXComboBox txtprovince, JFXTextField txtRegDate) {
+    private String custID;
+    private String custTital;
+    private String custName;
+    private String custPhoneNo;
+    private String custAddress;
+    private String custEmail;
+    private String city;
+    private String province;
+    private String RegDate;
+
+    public CustomerDTO(String custID, String custTital, String custName, String custPhoneNo, String custAddress, String custEmail, String city, String province, String regDate) {
+        this.custID = custID;
+        this.custTital = custTital;
+        this.custName = custName;
+        this.custPhoneNo = custPhoneNo;
+        this.custAddress = custAddress;
+        this.custEmail = custEmail;
+        this.city = city;
+        this.province = province;
+        RegDate = regDate;
     }
 
     public String getCustID() {
@@ -27,11 +46,11 @@ public class CustomerDTO {
         this.custTital = custTital;
     }
 
-    public SingleSelectionModel getCustName() {
+    public String getCustName() {
         return custName;
     }
 
-    public void setCustName(SingleSelectionModel custName) {
+    public void setCustName(String custName) {
         this.custName = custName;
     }
 
@@ -67,11 +86,11 @@ public class CustomerDTO {
         this.city = city;
     }
 
-    public SingleSelectionModel getProvince() {
+    public String getProvince() {
         return province;
     }
 
-    public void setProvince(SingleSelectionModel province) {
+    public void setProvince(String province) {
         this.province = province;
     }
 
@@ -82,27 +101,4 @@ public class CustomerDTO {
     public void setRegDate(String regDate) {
         RegDate = regDate;
     }
-
-    public CustomerDTO(String custID, String custTital, SingleSelectionModel custName, String custPhoneNo, String custAddress, String custEmail, String city, SingleSelectionModel province, String regDate) {
-        this.custID = custID;
-        this.custTital = custTital;
-        this.custName = custName;
-        this.custPhoneNo = custPhoneNo;
-        this.custAddress = custAddress;
-        this.custEmail = custEmail;
-        this.city = city;
-        this.province = province;
-        RegDate = regDate;
-    }
-
-    private String custID;
-    private String custTital;
-    private SingleSelectionModel custName;
-    private String custPhoneNo;
-    private String custAddress;
-    private String custEmail;
-    private String city;
-    private SingleSelectionModel province;
-    private String RegDate;
-
 }

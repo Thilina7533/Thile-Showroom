@@ -5,19 +5,25 @@ import dao.custom.CustomerDAO;
 import entity.Customer;
 import javafx.collections.ObservableList;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
-    public String getCustomerLastId() {
-        return null;
+    public String getCustomerLastId() throws SQLException, ClassNotFoundException {
+        String sql = "select max(id) from Customer";
+        ResultSet rst = CrudUtil.executeQuery(sql);
+        if (rst.next()) {
+            return rst.getString(1);
+        }
+        return "";
     }
 
     @Override
     public boolean add(Customer ID) throws ClassNotFoundException, SQLException {
-        String sql = "insert into customer values(?,?,?,?,?,?,?,?,?)";
-        return CrudUtil.executeUpdate(sql,ID.getCustID(),ID.getCustTital(),ID.getCustName(),ID.getCustAddress(),ID.getCity(),ID.getProvince(),ID.getRegDate(),ID.getCustPhoneNo(),ID.getCustEmail());
+      String sql = "insert into customer values(?,?,?,?,?,?,?,?,?)";
+      return CrudUtil.executeUpdate(sql,ID.getCustID(),ID.getCustTital(),ID.getCustName(),ID.getCustPhoneNo(),ID.getCustAddress(),ID.getCustEmail(),ID.getCity(),ID.getProvince(),ID.getRegDate());
     }
 
     @Override

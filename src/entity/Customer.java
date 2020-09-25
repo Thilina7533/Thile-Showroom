@@ -5,6 +5,28 @@ import javafx.scene.control.SingleSelectionModel;
 import java.util.Date;
 
 public class Customer {
+    private String custID;
+    private String custTital;
+    private String custName;
+    private String custPhoneNo;
+    private String custAddress;
+    private String custEmail;
+    private String city;
+    private String province;
+    private String RegDate;
+
+    public Customer(String custID, String custTital, String custName, String custPhoneNo, String custAddress, String custEmail, String city, String province, String regDate) {
+        this.custID = custID;
+        this.custTital = custTital;
+        this.custName = custName;
+        this.custPhoneNo = custPhoneNo;
+        this.custAddress = custAddress;
+        this.custEmail = custEmail;
+        this.city = city;
+        this.province = province;
+        RegDate = regDate;
+    }
+
     public String getCustID() {
         return custID;
     }
@@ -21,11 +43,11 @@ public class Customer {
         this.custTital = custTital;
     }
 
-    public SingleSelectionModel getCustName() {
+    public String getCustName() {
         return custName;
     }
 
-    public void setCustName(SingleSelectionModel custName) {
+    public void setCustName(String custName) {
         this.custName = custName;
     }
 
@@ -61,11 +83,11 @@ public class Customer {
         this.city = city;
     }
 
-    public SingleSelectionModel getProvince() {
+    public String getProvince() {
         return province;
     }
 
-    public void setProvince(SingleSelectionModel province) {
+    public void setProvince(String province) {
         this.province = province;
     }
 
@@ -76,30 +98,4 @@ public class Customer {
     public void setRegDate(String regDate) {
         RegDate = regDate;
     }
-
-    public Customer() {
-    }
-
-    public Customer(String custID, String custTital, SingleSelectionModel custName, String custPhoneNo, String custAddress, String custEmail, String city, SingleSelectionModel province, String regDate) {
-        this.custID = custID;
-        this.custTital = custTital;
-        this.custName = custName;
-        this.custPhoneNo = custPhoneNo;
-        this.custAddress = custAddress;
-        this.custEmail = custEmail;
-        this.city = city;
-        this.province = province;
-        RegDate = regDate;
-    }
-
-    private String custID;
-    private String custTital;
-    private SingleSelectionModel custName;
-    private String custPhoneNo;
-    private String custAddress;
-    private String custEmail;
-    private String city;
-    private SingleSelectionModel province;
-    private String RegDate;
-
 }
