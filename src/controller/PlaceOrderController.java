@@ -1,22 +1,32 @@
 package controller;
 
+import com.jfoenix.controls.JFXComboBox;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 
-import javax.xml.soap.Text;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
+import javafx.scene.control.ComboBox;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseButton;
 
 public class PlaceOrderController implements Initializable{
     public Label txtDate;
     public Label txtTime;
+    public JFXComboBox CustomerComboTxt;
 
     public PlaceOrderController() {
     }
@@ -37,7 +47,11 @@ public class PlaceOrderController implements Initializable{
 
         }
 
+    public void CustomerCombo(ActionEvent actionEvent) {
+
+
     }
+}
 
 
 

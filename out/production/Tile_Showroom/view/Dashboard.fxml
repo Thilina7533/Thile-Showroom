@@ -48,9 +48,7 @@
             <JFXButton buttonType="RAISED" onAction="#btnReportOnAction" prefHeight="90.0" prefWidth="185.0" text="ALL REPORTS " textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../resources/reports.png" />
-                     </image>
+                     <Image url="@../resources/reports.png"/>
                   </ImageView>
                </graphic>
                <font>

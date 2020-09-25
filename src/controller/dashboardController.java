@@ -20,19 +20,18 @@ public class dashboardController {
 
     public void DashBoardOnAction() throws IOException {
         setUi("DashboardForm");
-        new Flash(context).play();
+        new FadeIn(context).play();
 
     }
 
     public void AddItemOnAction() throws IOException {
         setUi("AddItemForm");
-        new Flip(context).play();
-
+        new FadeIn(context).play();
     }
 
     public void btnAddCashier() throws IOException {
         setUi("AddCashierForm");
-        new FadeInUp(context).play();
+        new FadeIn(context).play();
     }
 
 
@@ -43,22 +42,22 @@ public class dashboardController {
 
     public void btnAddCustomer() throws IOException {
         setUi("AddCustomerForm");
-        new BounceIn(context).play();
+        new FadeIn(context).play();
     }
 
     public void btnReportOnAction() throws IOException {
         setUi("Report");
-        new ZoomIn(context).play();
+        new FadeIn(context).play();
     }
 
     public void btnAboutOnAction() throws IOException {
         setUi("AboutForm");
-        new RotateIn(context).play();
+        new FadeIn(context).play();
     }
 
     public void btnSuplayerOnAction() throws IOException {
         setUi("AddSuply");
-        new RubberBand(context).play();
+        new FadeIn(context).play();
     }
 
     public void btnCloaseOnAction() {

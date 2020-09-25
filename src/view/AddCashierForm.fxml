@@ -25,11 +25,11 @@
             <TableColumn prefWidth="234.0" text="Password" />
         </columns>
       </TableView>
-      <JFXTextField labelFloat="true" layoutX="29.0" layoutY="107.0" prefHeight="31.0" prefWidth="230.0" promptText="Cashier ID" />
-      <JFXTextField labelFloat="true" layoutX="29.0" layoutY="199.0" prefHeight="31.0" prefWidth="230.0" promptText="Address" />
-      <JFXTextField labelFloat="true" layoutX="340.0" layoutY="309.0" prefHeight="31.0" prefWidth="230.0" promptText="Password" />
-      <JFXTextField labelFloat="true" layoutX="340.0" layoutY="107.0" prefHeight="31.0" prefWidth="230.0" promptText="Cashier Name" />
-      <JFXTextField labelFloat="true" layoutX="29.0" layoutY="309.0" prefHeight="31.0" prefWidth="230.0" promptText="Login" />
+      <JFXTextField fx:id="txtCashierID" labelFloat="true" layoutX="29.0" layoutY="107.0" prefHeight="31.0" prefWidth="230.0" promptText="Cashier ID" />
+      <JFXTextField fx:id="txtCashierId" labelFloat="true" layoutX="29.0" layoutY="199.0" prefHeight="31.0" prefWidth="230.0" promptText="Address" />
+      <JFXTextField fx:id="txtPassword" labelFloat="true" layoutX="340.0" layoutY="309.0" prefHeight="31.0" prefWidth="230.0" promptText="Password" />
+      <JFXTextField fx:id="txtCashierName" labelFloat="true" layoutX="340.0" layoutY="107.0" prefHeight="31.0" prefWidth="230.0" promptText="Cashier Name" />
+      <JFXTextField fx:id="txtLogin" labelFloat="true" layoutX="29.0" layoutY="309.0" prefHeight="31.0" prefWidth="230.0" promptText="Login" />
       <JFXButton buttonType="RAISED" layoutX="340.0" layoutY="363.0" prefHeight="57.0" prefWidth="209.0" style="-fx-background-color: #4b7bec;" text="ADD" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
@@ -67,9 +67,9 @@
             </JFXButton>
          </children>
       </TilePane>
-      <StackPane layoutX="340.0" layoutY="161.0" prefHeight="150.0" prefWidth="230.0">
+      <StackPane layoutX="340.0" layoutY="195.0" prefHeight="45.0" prefWidth="230.0">
          <children>
-            <JFXDatePicker overLay="true" prefHeight="31.0" prefWidth="239.0" promptText="Birth Day" />
+            <JFXDatePicker fx:id="txtCashierBirthDay" overLay="true" prefHeight="31.0" prefWidth="239.0" promptText="Birth Day" />
          </children>
       </StackPane>
    </children>

@@ -20,8 +20,8 @@
                      <Font size="18.0" />
                   </font>
                </Label>
-               <JFXTextField fx:id="txtUserName" focusColor="#4ffbca" labelFloat="true" layoutX="142.0" layoutY="202.0" prefHeight="40.0" prefWidth="269.0" promptText="User Name" unFocusColor="BLACK" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="117.0" />
-               <JFXPasswordField fx:id="txtPassword" focusColor="#4ffbca" labelFloat="true" layoutX="139.0" layoutY="293.0" prefHeight="40.0" prefWidth="269.0" promptText="Password" unFocusColor="BLACK" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="120.0" />
+               <JFXTextField fx:id="txtUserName" focusColor="#4ffbca" labelFloat="true" layoutX="142.0" layoutY="202.0" prefHeight="40.0" prefWidth="269.0" promptText="User Name" text="thilina" unFocusColor="BLACK" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="117.0" />
+               <JFXPasswordField fx:id="txtPassword" focusColor="#4ffbca" labelFloat="true" layoutX="139.0" layoutY="293.0" prefHeight="40.0" prefWidth="269.0" promptText="Password" text="2259" unFocusColor="BLACK" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="120.0" />
                <JFXButton fx:id="btnSignIn" buttonType="RAISED" layoutX="159.0" layoutY="406.0" onAction="#LoginOnAction" prefHeight="67.0" prefWidth="229.0" ripplerFill="WHITE" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0); -fx-background-radius: 30;" text="Sign In" textFill="WHITE">
                   <font>
                      <Font name="System Bold" size="22.0" />

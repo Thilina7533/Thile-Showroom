@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -11,106 +12,99 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="872.0" prefWidth="1226.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlaceOrderController">
-   <Pane layoutX="35.0" layoutY="45.0" prefHeight="84.0" prefWidth="427.0"
-         style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0); -fx-background-radius: 30;">
+   <Pane layoutX="35.0" layoutY="45.0" prefHeight="84.0" prefWidth="427.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0); -fx-background-radius: 30;">
       <effect>
-         <DropShadow/>
+         <DropShadow />
       </effect>
       <Label layoutX="42.0" layoutY="11.0" prefHeight="31.0" prefWidth="82.0" text="Order ID" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="18.0"/>
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
       <Label layoutX="158.0" layoutY="11.0" prefHeight="31.0" prefWidth="111.0" text="Order Date" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="18.0"/>
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
       <Label layoutX="54.0" layoutY="42.0" prefHeight="31.0" prefWidth="82.0" text="A112" textFill="#fbff00">
          <font>
-            <Font name="System Bold" size="18.0"/>
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
       <Label layoutX="323.0" layoutY="11.0" prefHeight="31.0" prefWidth="82.0" text="Time" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="18.0"/>
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
       <Label fx:id="txtDate" layoutX="158.0" layoutY="42.0" prefHeight="31.0" prefWidth="131.0" textFill="#fbff00">
          <font>
-            <Font name="System Bold" size="18.0"/>
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
       <Label fx:id="txtTime" layoutX="283.0" layoutY="42.0" prefHeight="31.0" prefWidth="124.0" textFill="#fbff00">
          <font>
-            <Font name="System Bold" size="18.0"/>
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
    </Pane>
-   <Pane layoutX="474.0" layoutY="45.0" prefHeight="361.0" prefWidth="460.0"
-         style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0); -fx-background-radius: 30;">
+   <Pane layoutX="474.0" layoutY="45.0" prefHeight="361.0" prefWidth="460.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0); -fx-background-radius: 30;">
       <effect>
-         <DropShadow/>
+         <DropShadow />
       </effect>
-      <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="28.0" layoutY="40.0" promptText="ITEM CODE"
-                    unFocusColor="WHITE">
+      <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="28.0" layoutY="40.0" promptText="ITEM CODE" unFocusColor="WHITE">
          <font>
-            <Font name="System Bold" size="14.0"/>
+            <Font name="System Bold" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="28.0" layoutY="147.0" promptText="ITEM NAME"
-                    unFocusColor="WHITE">
+      <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="28.0" layoutY="147.0" promptText="ITEM NAME" unFocusColor="WHITE">
          <font>
-            <Font name="System Bold" size="14.0"/>
+            <Font name="System Bold" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="215.0" layoutY="145.0" promptText="PRICE"
-                    unFocusColor="WHITE">
+      <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="215.0" layoutY="145.0" promptText="PRICE" unFocusColor="WHITE">
          <font>
-            <Font name="System Bold" size="14.0"/>
+            <Font name="System Bold" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="28.0" layoutY="255.0" promptText="QUANTITY"
-                    unFocusColor="WHITE">
+      <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="28.0" layoutY="255.0" promptText="QUANTITY" unFocusColor="WHITE">
          <font>
-            <Font name="System Bold" size="14.0"/>
+            <Font name="System Bold" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXButton buttonType="RAISED" layoutX="259.0" layoutY="25.0" prefHeight="52.0" prefWidth="148.0"
-                 style="-fx-background-color: white; -fx-background-radius: 30;" text="SEARCH">
+      <JFXButton buttonType="RAISED" layoutX="259.0" layoutY="25.0" prefHeight="52.0" prefWidth="148.0" style="-fx-background-color: white; -fx-background-radius: 30;" text="SEARCH">
          <font>
-            <Font name="System Bold" size="15.0"/>
+            <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="259.0" layoutY="244.0" prefHeight="52.0" prefWidth="148.0"
-                 style="-fx-background-color: white; -fx-background-radius: 30;" text="ADD CART">
+      <JFXButton buttonType="RAISED" layoutX="259.0" layoutY="244.0" prefHeight="52.0" prefWidth="148.0" style="-fx-background-color: white; -fx-background-radius: 30;" text="ADD CART">
          <font>
-            <Font name="System Bold" size="15.0"/>
+            <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
    </Pane>
    <Pane layoutX="35.0" layoutY="141.0" prefHeight="266.0" prefWidth="427.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0); -fx-background-radius: 30;">
       <children>
-         <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="23.0" layoutY="39.0" promptText="CUSTOMER NAME" unFocusColor="WHITE">
+         <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="23.0" layoutY="96.0" promptText="CUSTOMER NAME" unFocusColor="WHITE">
             <font>
                <Font name="System Bold" size="14.0" />
             </font>
          </JFXTextField>
-         <JFXTextField focusColor="#eeeeee" labelFloat="true" layoutX="214.0" layoutY="39.0" promptText="CUSTOMER PHONE" unFocusColor="WHITE">
+         <JFXTextField focusColor="#eeeeee" labelFloat="true" layoutX="214.0" layoutY="94.0" promptText="CUSTOMER PHONE" unFocusColor="WHITE">
             <font>
                <Font name="System Bold" size="15.0" />
             </font>
          </JFXTextField>
-         <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="23.0" layoutY="160.0" promptText="ADDRESS" unFocusColor="WHITE">
+         <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="23.0" layoutY="192.0" promptText="ADDRESS" unFocusColor="WHITE">
             <font>
                <Font name="System Bold" size="15.0" />
             </font>
          </JFXTextField>
-         <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="214.0" layoutY="160.0" promptText="Email" unFocusColor="WHITE">
+         <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="214.0" layoutY="192.0" promptText="Email" unFocusColor="WHITE">
             <font>
                <Font name="System Bold" size="15.0" />
             </font>
          </JFXTextField>
+         <JFXComboBox fx:id="CustomerComboTxt" focusColor="#dddddd" layoutX="17.0" layoutY="25.0" onAction="#CustomerCombo" prefHeight="31.0" prefWidth="181.0" unFocusColor="#d0d0d0" />
       </children>
       <effect>
          <DropShadow />
