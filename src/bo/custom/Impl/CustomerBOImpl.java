@@ -9,7 +9,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class CustomerBOImpl implements CustomerBO {
     CustomerDAO customerDAO = (CustomerDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.CUSTOMER);
@@ -35,7 +34,7 @@ public class CustomerBOImpl implements CustomerBO {
     }
 
     @Override
-    public ObservableList<CustomerDTO> getAllStudent() throws ClassNotFoundException, SQLException {
+    public ObservableList<CustomerDTO> getAllCustomer() throws ClassNotFoundException, SQLException {
          ObservableList<Customer> all =customerDAO.getAll();
         ObservableList<CustomerDTO> allCustomers = FXCollections.observableArrayList();
         for (Customer ID : all) {

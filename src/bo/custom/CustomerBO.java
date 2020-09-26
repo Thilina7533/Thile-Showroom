@@ -15,7 +15,7 @@ public interface CustomerBO extends SuperBO {
 
     CustomerDTO searchCustomer(String id) throws ClassNotFoundException, SQLException;
 
-    ObservableList<CustomerDTO> getAllStudent() throws ClassNotFoundException, SQLException;
+    ObservableList<CustomerDTO> getAllCustomer() throws ClassNotFoundException, SQLException;
 
     int getRowCount()throws ClassNotFoundException,SQLException;
 

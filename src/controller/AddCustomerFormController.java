@@ -68,7 +68,7 @@ public class AddCustomerFormController implements Initializable {
 
     private void loadAllCustomer() {
         try {
-            ObservableList<CustomerDTO> allCustomers = customerBO.getAllStudent();
+            ObservableList<CustomerDTO> allCustomers = customerBO.getAllCustomer();
             tblCustomer.setItems(allCustomers);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

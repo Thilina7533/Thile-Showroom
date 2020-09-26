@@ -1,9 +1,5 @@
 package entity;
 
-import javafx.scene.control.SingleSelectionModel;
-
-import java.util.Date;
-
 public class Customer {
     private String custID;
     private String custTital;
@@ -26,6 +22,8 @@ public class Customer {
         this.province = province;
         RegDate = regDate;
     }
+
+
 
     public String getCustID() {
         return custID;

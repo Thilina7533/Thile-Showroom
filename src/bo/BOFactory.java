@@ -1,6 +1,7 @@
 package bo;
 
 import bo.custom.Impl.CustomerBOImpl;
+import bo.custom.Impl.SuplayBOImpl;
 import dto.CustomerDTO;
 import javafx.collections.ObservableList;
 
@@ -30,7 +31,8 @@ public class BOFactory {
         switch (types) {
             case CUSTOMER:
                 return new CustomerBOImpl() ;
-
+            case SUPLAY:
+                return new SuplayBOImpl() ;
 
                 }
         return null;
