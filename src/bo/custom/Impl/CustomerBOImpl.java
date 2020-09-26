@@ -5,9 +5,11 @@ import dao.DAOFactory;
 import dao.custom.CustomerDAO;
 import dto.CustomerDTO;
 import entity.Customer;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class CustomerBOImpl implements CustomerBO {
     CustomerDAO customerDAO = (CustomerDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.CUSTOMER);
@@ -18,23 +20,36 @@ public class CustomerBOImpl implements CustomerBO {
 
     @Override
     public boolean deleteCustomer(String id) throws ClassNotFoundException, SQLException {
-        return false;
+        return customerDAO.delete(id);
     }
 
     @Override
-    public boolean updateCustomer(CustomerDTO id) throws ClassNotFoundException, SQLException {
-        return false;
+    public boolean updateCustomer(CustomerDTO ID) throws ClassNotFoundException, SQLException {
+        return customerDAO.update(new Customer(ID.getCustID(),ID.getCustTital(),ID.getCustName(),ID.getCustPhoneNo(),ID.getCustAddress(),ID.getCustEmail(),ID.getCity(),ID.getProvince(),ID.getRegDate()));
     }
 
     @Override
     public CustomerDTO searchCustomer(String id) throws ClassNotFoundException, SQLException {
-        return null;
+        Customer search = customerDAO.search(id);
+        return new CustomerDTO(search.getCustID(),search.getCustTital(),search.getCustName(),search.getCustPhoneNo(),search.getCustAddress(),search.getCustEmail(),search.getCity(),search.getProvince(),search.getRegDate());
     }
 
     @Override
     public ObservableList<CustomerDTO> getAllStudent() throws ClassNotFoundException, SQLException {
-        return null;
+         ObservableList<Customer> all =customerDAO.getAll();
+        ObservableList<CustomerDTO> allCustomers = FXCollections.observableArrayList();
+        for (Customer ID : all) {
+            CustomerDTO dto = new CustomerDTO(ID.getCustID(),ID.getCustTital(),ID.getCustName(),ID.getCustPhoneNo(),ID.getCustAddress(),ID.getCustEmail(),ID.getCity(),ID.getProvince(),ID.getRegDate());
+            allCustomers.add(dto);
+        }
+        return allCustomers;
     }
 
+
+    @Override
+    public int getRowCount() throws ClassNotFoundException, SQLException {
+        return customerDAO.getRowCount();
     }
+
+}
 

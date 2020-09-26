@@ -15,13 +15,17 @@
 
 <AnchorPane prefHeight="908.0" prefWidth="1226.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddCustomerFormController">
     <children>
-        <TableView layoutX="14.0" layoutY="465.0" prefHeight="425.0" prefWidth="1201.0" stylesheets="@../css/fullpackstyling.css">
+        <TableView fx:id="tblCustomer" layoutX="14.0" layoutY="465.0" prefHeight="425.0" prefWidth="1201.0" stylesheets="@../css/fullpackstyling.css">
             <columns>
-                <TableColumn prefWidth="147.0" text="Customer ID" />
-                <TableColumn prefWidth="346.9999694824219" text="Customer Name" />
-                <TableColumn prefWidth="327.0" text="Address" />
-                <TableColumn prefWidth="182.0" text="City" />
-                <TableColumn prefWidth="197.0" text="Province" />
+                <TableColumn fx:id="colCustID" prefWidth="85.0" text=" ID" />
+            <TableColumn fx:id="colCustTitle" prefWidth="42.999969482421875" text="Title" />
+                <TableColumn fx:id="colCustName" prefWidth="148.0" text="Customer Name" />
+                <TableColumn fx:id="colCustPhone" prefWidth="158.0" text="Phone No" />
+                <TableColumn fx:id="colCustAddress" prefWidth="177.0" text="Address" />
+            <TableColumn fx:id="colCustEmail" prefWidth="159.0" text="Email" />
+            <TableColumn fx:id="colCustCity" maxWidth="164.0" minWidth="0.0" prefWidth="134.0" text="City" />
+                <TableColumn fx:id="colCustProvince" maxWidth="160.0" minWidth="0.0" prefWidth="140.0" text="Province" />
+            <TableColumn fx:id="colCustReg" maxWidth="156.0" minWidth="0.0" prefWidth="156.0" text="Reg" />
             </columns>
         </TableView>
         <JFXTextField fx:id="txtcustID" labelFloat="true" layoutX="29.0" layoutY="107.0" prefHeight="31.0" prefWidth="230.0" promptText="Customer ID" />
@@ -33,24 +37,19 @@
                 <Font name="System Bold" size="21.0" />
             </font>
         </JFXButton>
-        <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="104.0" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #fa8231;" text="Search" textFill="WHITE">
+        <JFXButton fx:id="btnSearch" buttonType="RAISED" layoutX="734.0" layoutY="104.0" onAction="#searchCustomerOnAction" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #fa8231;" text="Search" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="19.0" />
             </font>
         </JFXButton>
-        <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="189.0" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #0fb9b1;" text="Update" textFill="WHITE">
+        <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="734.0" layoutY="217.0" onAction="#updateOnAction" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #0fb9b1;" text="Update" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="21.0" />
             </font>
         </JFXButton>
-        <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="267.0" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #485460;" text="Delete" textFill="WHITE">
+        <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="734.0" layoutY="330.0" onAction="#customerDeleteOnAction" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #485460;" text="Delete" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="23.0" />
-            </font>
-        </JFXButton>
-        <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="352.0" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #ef5777;" text="Get All" textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="21.0" />
             </font>
         </JFXButton>
         <ImageView fitHeight="191.0" fitWidth="223.0" layoutX="992.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
@@ -84,7 +83,7 @@
            </items>
         </JFXComboBox>
       <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="29.0" layoutY="247.0" prefHeight="31.0" prefWidth="230.0" promptText="Email" />
-      <JFXTextField fx:id="txtRegDate" labelFloat="true" layoutX="332.0" layoutY="174.0" prefHeight="31.0" prefWidth="230.0" promptText=" Register Date" text="2020-05-10" />
+      <JFXTextField fx:id="txtRegDate" labelFloat="true" layoutX="332.0" layoutY="174.0" prefHeight="31.0" prefWidth="230.0" promptText=" Register Date" />
       <JFXTextField fx:id="txtPhoneNo" labelFloat="true" layoutX="29.0" layoutY="314.0" prefHeight="31.0" prefWidth="230.0" promptText="Phone No" />
     </children>
 </AnchorPane>
