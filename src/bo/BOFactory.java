@@ -1,6 +1,8 @@
 package bo;
 
+import bo.custom.Impl.CashierIBOmpl;
 import bo.custom.Impl.CustomerBOImpl;
+import bo.custom.Impl.ItemBOImpl;
 import bo.custom.Impl.SuplayBOImpl;
 import dto.CustomerDTO;
 import javafx.collections.ObservableList;
@@ -33,6 +35,10 @@ public class BOFactory {
                 return new CustomerBOImpl() ;
             case SUPLAY:
                 return new SuplayBOImpl() ;
+            case CASHIER:
+                return new CashierIBOmpl() ;
+            case ITEM:
+                return new ItemBOImpl() ;
 
                 }
         return null;

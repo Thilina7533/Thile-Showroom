@@ -1,6 +1,8 @@
 package dao;
 
+import dao.custom.impl.CashierDAOImpl;
 import dao.custom.impl.CustomerDAOImpl;
+import dao.custom.impl.ItemDAOImpl;
 import dao.custom.impl.SuplayDAOImpl;
 
 public class DAOFactory {
@@ -27,6 +29,10 @@ public class DAOFactory {
                 return new CustomerDAOImpl();
             case SUPLAY:
                 return new SuplayDAOImpl();
+            case CASHIER:
+                return new CashierDAOImpl();
+            case ITEM:
+                return new ItemDAOImpl();
 
             default:
                 return null;

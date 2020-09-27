@@ -168,6 +168,7 @@ public class AddCustomerFormController implements Initializable {
                 tray.setTitle(tilte);
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.SUCCESS);
+                loadAllCustomer();
             } else {
                 tilte = "Customer Not Found";
                 message = "Sorry";
@@ -253,6 +254,7 @@ public class AddCustomerFormController implements Initializable {
                 tray.setTitle(tilte);
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.SUCCESS);
+                loadAllCustomer();
             } else {
                 tilte = "Update Un Successful";
                 message = "Customer Is Not Updated";

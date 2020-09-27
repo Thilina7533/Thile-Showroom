@@ -1,4 +1,11 @@
 package dao.custom;
 
-public interface CashierDAO {
+import dao.CrudDAO;
+import entity.Cashier;
+
+import java.sql.SQLException;
+
+public interface CashierDAO extends CrudDAO<Cashier,String> {
+    String getCashierLastId()throws Exception;
+    int getRowCount()throws ClassNotFoundException, SQLException;
 }

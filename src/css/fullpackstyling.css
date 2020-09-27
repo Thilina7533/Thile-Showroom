@@ -60,22 +60,22 @@
     -fx-background-radius :  30 30 30 30;
 }
 
-.hvr-grow {
-    display: inline-block;
-    vertical-align: middle;
-    transform: translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-    transition-duration: 0.3s;
-    transition-property: transform;
-}
+/*.hvr-grow {*/
+/*    display: inline-block;*/
+/*    vertical-align: middle;*/
+/*    transform: translateZ(0);*/
+/*    box-shadow: 0 0 1px rgba(0, 0, 0, 0);*/
+/*    backface-visibility: hidden;*/
+/*    -moz-osx-font-smoothing: grayscale;*/
+/*    transition-duration: 0.3s;*/
+/*    transition-property: transform;*/
+/*}*/
 
-.hvr-grow:hover,
+/*.hvr-grow:hover,*/
 
-. {
-    transform: scale(1.1);
-}
+/*. {*/
+/*    transform: scale(1.1);*/
+/*}*/
 
 
 
@@ -152,19 +152,19 @@
 }
 
 
-/* chart properties */
-.css-input {
-    padding: 3px;
-    font-size: 23px;
-    border-width: 0px;
-    border-color: #CCCCCC;
-    background-color: #FFFFFF;
-    color: #000000;
-    border-style: solid;
-    border-radius: 50px;
-    box-shadow: 0px 0px 5px rgba(66,66,66,.75);
-    text-shadow: 0px 0px 5px rgba(66,66,66,.75);
-}
+/*!* chart properties *!*/
+/*.css-input {*/
+/*    padding: 3px;*/
+/*    font-size: 23px;*/
+/*    border-width: 0px;*/
+/*    border-color: #CCCCCC;*/
+/*    background-color: #FFFFFF;*/
+/*    color: #000000;*/
+/*    border-style: solid;*/
+/*    border-radius: 50px;*/
+/*    box-shadow: 0px 0px 5px rgba(66,66,66,.75);*/
+/*    text-shadow: 0px 0px 5px rgba(66,66,66,.75);*/
+/*}*/
 
 .chart {
     -fx-padding: 10px;

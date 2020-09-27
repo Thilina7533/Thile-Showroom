@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.TilePane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="908.0" prefWidth="1226.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddCashierFormController">
@@ -26,15 +25,15 @@
         </columns>
       </TableView>
       <JFXTextField fx:id="txtCashierID" labelFloat="true" layoutX="29.0" layoutY="107.0" prefHeight="31.0" prefWidth="230.0" promptText="Cashier ID" />
-      <JFXTextField fx:id="txtCashierId" labelFloat="true" layoutX="29.0" layoutY="199.0" prefHeight="31.0" prefWidth="230.0" promptText="Address" />
+      <JFXTextField fx:id="txtCashierAddress" labelFloat="true" layoutX="29.0" layoutY="199.0" prefHeight="31.0" prefWidth="230.0" promptText="Address" />
       <JFXTextField fx:id="txtPassword" labelFloat="true" layoutX="340.0" layoutY="309.0" prefHeight="31.0" prefWidth="230.0" promptText="Password" />
       <JFXTextField fx:id="txtCashierName" labelFloat="true" layoutX="340.0" layoutY="107.0" prefHeight="31.0" prefWidth="230.0" promptText="Cashier Name" />
       <JFXTextField fx:id="txtLogin" labelFloat="true" layoutX="29.0" layoutY="309.0" prefHeight="31.0" prefWidth="230.0" promptText="Login" />
-      <JFXButton buttonType="RAISED" layoutX="340.0" layoutY="363.0" prefHeight="57.0" prefWidth="209.0" style="-fx-background-color: #4b7bec;" text="ADD" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="340.0" layoutY="363.0" onAction="#addOnAction" prefHeight="57.0" prefWidth="209.0" style="-fx-background-color: #4b7bec;" text="ADD" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="104.0" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #fa8231;" text="Search" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="104.0" onAction="#searchOnAction" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #fa8231;" text="Search" textFill="WHITE">
          <font>
             <Font name="System Bold" size="19.0" />
          </font></JFXButton>
@@ -46,31 +45,36 @@
          <font>
             <Font name="System Bold" size="23.0" />
          </font></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="352.0" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #ef5777;" text="Get All" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="352.0" onAction="#testingIcon" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #ef5777;" text="Get All" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font></JFXButton>
-      <ImageView fitHeight="78.0" fitWidth="124.0" layoutX="1126.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="100.0" fitWidth="97.0" layoutX="1114.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/BlackLogo.png" />
          </image>
       </ImageView>
       <Pane prefHeight="78.0" prefWidth="1226.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="208.0" layoutX="966.0" layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="230.0" />
-      <ImageView fitHeight="208.0" fitWidth="230.0" layoutX="966.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" />
-      <TilePane layoutX="29.0" layoutY="401.0" prefHeight="39.0" prefWidth="230.0" style="-fx-background-color: #273c75; -fx-background-radius: 30;">
+      <ImageView fx:id="imageid" fitHeight="190.0" fitWidth="202.0" layoutX="963.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true" />
+      <TilePane layoutX="29.0" layoutY="401.0" prefHeight="39.0" prefWidth="209.0" style="-fx-background-color: #273c75; -fx-background-radius: 30;">
          <children>
-            <JFXButton buttonType="RAISED" prefHeight="39.0" prefWidth="78.0" style="-fx-background-color: #eb4d4b;" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Photo" textFill="WHITE">
+            <JFXButton fx:id="setOnAction" buttonType="RAISED" onAction="#setOnAction" prefHeight="39.0" prefWidth="78.0" style="-fx-background-color: #eb4d4b;" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Photo" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXButton>
+
          </children>
       </TilePane>
       <StackPane layoutX="340.0" layoutY="195.0" prefHeight="45.0" prefWidth="230.0">
          <children>
-            <JFXDatePicker fx:id="txtCashierBirthDay" overLay="true" prefHeight="31.0" prefWidth="239.0" promptText="Birth Day" />
+            <DatePicker fx:id="txtCashierBirthDay" />
          </children>
       </StackPane>
+      <JFXTextField fx:id="picTitle" focusColor="BLACK" labelFloat="true" layoutX="993.0" layoutY="368.0" prefHeight="45.0" prefWidth="202.0" unFocusColor="BLACK">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </JFXTextField>
    </children>
 </AnchorPane>

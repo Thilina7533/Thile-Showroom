@@ -1,15 +1,25 @@
 package entity;
 
-import java.sql.Blob;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Cashier {
     private String castID;
     private String castName;
-    private Date castBirthDay;
+    private String castBirthDay;
     private String castAddress;
-    private Blob castPhoto;
-    private String caslogin;
+    private String castPhoto;
+    private String castlogin;
+    private String castPassword;
+
+    public Cashier(String castID, String castName, String castBirthDay, String castAddress, String castPhoto, String castlogin, String castPassword) {
+        this.castID = castID;
+        this.castName = castName;
+        this.castBirthDay = castBirthDay;
+        this.castAddress = castAddress;
+        this.castPhoto = castPhoto;
+        this.castlogin = castlogin;
+        this.castPassword = castPassword;
+    }
 
     public String getCastID() {
         return castID;
@@ -27,11 +37,11 @@ public class Cashier {
         this.castName = castName;
     }
 
-    public Date getCastBirthDay() {
+    public String getCastBirthDay() {
         return castBirthDay;
     }
 
-    public void setCastBirthDay(Date castBirthDay) {
+    public void setCastBirthDay(String castBirthDay) {
         this.castBirthDay = castBirthDay;
     }
 
@@ -43,31 +53,28 @@ public class Cashier {
         this.castAddress = castAddress;
     }
 
-    public Blob getCastPhoto() {
+    public String getCastPhoto() {
         return castPhoto;
     }
 
-    public void setCastPhoto(Blob castPhoto) {
+    public void setCastPhoto(String castPhoto) {
         this.castPhoto = castPhoto;
     }
 
-    public String getCaslogin() {
-        return caslogin;
+    public String getCastlogin() {
+        return castlogin;
     }
 
-    public void setCaslogin(String caslogin) {
-        this.caslogin = caslogin;
+    public void setCastlogin(String castlogin) {
+        this.castlogin = castlogin;
     }
 
-    public Cashier() {
+    public String getCastPassword() {
+        return castPassword;
     }
 
-    public Cashier(String castID, String castName, Date castBirthDay, String castAddress, Blob castPhoto, String caslogin) {
-        this.castID = castID;
-        this.castName = castName;
-        this.castBirthDay = castBirthDay;
-        this.castAddress = castAddress;
-        this.castPhoto = castPhoto;
-        this.caslogin = caslogin;
+    public void setCastPassword(String castPassword) {
+        this.castPassword = castPassword;
     }
 }
+

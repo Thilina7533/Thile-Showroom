@@ -1,15 +1,24 @@
 package dto;
 
-import java.sql.Blob;
-import java.util.Date;
-
 public class CashierDTO {
     private String castID;
     private String castName;
-    private Date castBirthDay;
+    private String castBirthDay;
     private String castAddress;
-    private Blob castPhoto;
-    private String caslogin;
+    private String castPhoto;
+    private String castlogin;
+    private String castPassword;
+
+
+    public CashierDTO(String castID, String castName, String castBirthDay, String castAddress, String castPhoto, String castlogin, String castPassword) {
+        this.castID = castID;
+        this.castName = castName;
+        this.castBirthDay = castBirthDay;
+        this.castAddress = castAddress;
+        this.castPhoto = castPhoto;
+        this.castlogin = castlogin;
+        this.castPassword = castPassword;
+    }
 
     public String getCastID() {
         return castID;
@@ -27,11 +36,11 @@ public class CashierDTO {
         this.castName = castName;
     }
 
-    public Date getCastBirthDay() {
+    public String getCastBirthDay() {
         return castBirthDay;
     }
 
-    public void setCastBirthDay(Date castBirthDay) {
+    public void setCastBirthDay(String castBirthDay) {
         this.castBirthDay = castBirthDay;
     }
 
@@ -43,43 +52,30 @@ public class CashierDTO {
         this.castAddress = castAddress;
     }
 
-    public Blob getCastPhoto() {
+    public String getCastPhoto() {
         return castPhoto;
     }
 
-    public void setCastPhoto(Blob castPhoto) {
+    public String setCastPhoto(String castPhoto) {
         this.castPhoto = castPhoto;
+        return castPhoto;
     }
 
-    public String getCaslogin() {
-        return caslogin;
+    public String getCastlogin() {
+        return castlogin;
     }
 
-    public void setCaslogin(String caslogin) {
-        this.caslogin = caslogin;
+    public void setCastlogin(String castlogin) {
+        this.castlogin = castlogin;
     }
 
-    public String getCaspassword() {
-        return caspassword;
+    public String getCastPassword() {
+        return castPassword;
     }
 
-    public void setCaspassword(String caspassword) {
-        this.caspassword = caspassword;
+    public void setCastPassword(String castPassword) {
+        this.castPassword = castPassword;
     }
-
-    public CashierDTO() {
-    }
-
-    public CashierDTO(String castID, String castName, Date castBirthDay, String castAddress, Blob castPhoto, String caslogin, String caspassword) {
-        this.castID = castID;
-        this.castName = castName;
-        this.castBirthDay = castBirthDay;
-        this.castAddress = castAddress;
-        this.castPhoto = castPhoto;
-        this.caslogin = caslogin;
-        this.caspassword = caspassword;
-    }
-
-    private String caspassword;
-
 }
+
+

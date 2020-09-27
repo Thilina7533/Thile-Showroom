@@ -5,8 +5,19 @@ public class Item {
     private String suplayerID;
     private String Description;
     private String packSize;
-    private Double unitPrice;
-    private Integer QtyOnHand;
+    private String unitPrice;
+    private String QtyOnHand;
+    private String BatchID;
+
+    public Item(String itemCode, String suplayerID, String description, String packSize, String unitPrice, String qtyOnHand, String batchID) {
+        this.itemCode = itemCode;
+        this.suplayerID = suplayerID;
+        Description = description;
+        this.packSize = packSize;
+        this.unitPrice = unitPrice;
+        QtyOnHand = qtyOnHand;
+        BatchID = batchID;
+    }
 
     public String getItemCode() {
         return itemCode;
@@ -40,31 +51,27 @@ public class Item {
         this.packSize = packSize;
     }
 
-    public Double getUnitPrice() {
+    public String getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(Double unitPrice) {
+    public void setUnitPrice(String unitPrice) {
         this.unitPrice = unitPrice;
     }
 
-    public Integer getQtyOnHand() {
+    public String getQtyOnHand() {
         return QtyOnHand;
     }
 
-    public void setQtyOnHand(Integer qtyOnHand) {
+    public void setQtyOnHand(String qtyOnHand) {
         QtyOnHand = qtyOnHand;
     }
 
-    public Item() {
+    public String getBatchID() {
+        return BatchID;
     }
 
-    public Item(String itemCode, String suplayerID, String description, String packSize, Double unitPrice, Integer qtyOnHand) {
-        this.itemCode = itemCode;
-        this.suplayerID = suplayerID;
-        Description = description;
-        this.packSize = packSize;
-        this.unitPrice = unitPrice;
-        QtyOnHand = qtyOnHand;
+    public void setBatchID(String batchID) {
+        BatchID = batchID;
     }
 }

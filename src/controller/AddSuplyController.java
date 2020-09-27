@@ -178,6 +178,7 @@ public class AddSuplyController implements Initializable {
                 tray.setTitle(tilte);
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.SUCCESS);
+                loadAllSuplay();
             } else {
                 tilte = "Update Un Successful";
                 message = "Customer Is Not Updated";
@@ -209,6 +210,7 @@ public class AddSuplyController implements Initializable {
                 tray.setTitle(tilte);
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.SUCCESS);
+                loadAllSuplay();
             } else {
                 tilte = "Suplayer Not Found";
                 message = "Sorry";
