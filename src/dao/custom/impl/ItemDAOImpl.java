@@ -2,8 +2,8 @@ package dao.custom.impl;
 
 import dao.CrudUtil;
 import dao.custom.ItemDAO;
-import entity.Customer;
 import entity.Item;
+import entity.Orderdetail;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

@@ -2,6 +2,7 @@ package dto;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import entity.Customer;
 import javafx.collections.ObservableList;
 import javafx.scene.control.SingleSelectionModel;
 

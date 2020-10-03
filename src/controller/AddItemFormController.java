@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
@@ -46,7 +47,6 @@ public class AddItemFormController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         itemBO = (ItemBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.ITEM);
-        setTxtItemId();
         colItemId.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
         colSupId.setCellValueFactory(new PropertyValueFactory<>("suplayerID"));
         colDes.setCellValueFactory(new PropertyValueFactory<>("Description"));
@@ -55,6 +55,7 @@ public class AddItemFormController implements Initializable {
         colQty.setCellValueFactory(new PropertyValueFactory<>("QtyOnHand"));
         colBath.setCellValueFactory(new PropertyValueFactory<>("BatchID"));
         loadAllItems();
+        setTxtItemId();
     }
 
     private void loadAllItems() {
@@ -254,5 +255,8 @@ public class AddItemFormController implements Initializable {
             e1.printStackTrace();
         }
     }
-}
 
+    public void tblItemOnAction(MouseEvent mouseEvent) {
+
+    }
+}

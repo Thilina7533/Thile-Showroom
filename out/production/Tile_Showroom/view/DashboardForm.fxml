@@ -63,7 +63,7 @@
             <Image url="@../resources/visit.png" />
          </image>
       </ImageView>
-      <Label layoutX="745.0" layoutY="281.0" prefHeight="40.0" prefWidth="50.0" text="45">
+      <Label fx:id="txtTotalCustomers" layoutX="754.0" layoutY="280.0" prefHeight="40.0" prefWidth="50.0" text="0">
          <font>
             <Font name="Arial Black" size="27.0" />
          </font>

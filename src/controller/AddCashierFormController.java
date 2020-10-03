@@ -1,6 +1,8 @@
 package controller;
 
+import bo.BOFactory;
 import bo.custom.CashierBO;
+import bo.custom.CustomerBO;
 import bo.custom.Impl.CashierIBOmpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -8,12 +10,18 @@ import com.jfoenix.controls.JFXTextField;
 import com.sun.deploy.xml.GeneralEntity;
 import dto.CashierDTO;
 import dto.CustomerDTO;
+import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -25,13 +33,15 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
 import static com.sun.corba.se.impl.util.Utility.printStackTrace;
 
-public class AddCashierFormController {
+public class AddCashierFormController implements Initializable {
     public JFXTextField txtCashierID;
     public JFXTextField txtPassword;
     public JFXTextField txtCashierName;
@@ -41,9 +51,33 @@ public class AddCashierFormController {
     public DatePicker txtCashierBirthDay;
     public JFXTextField txtCashierAddress;
     public JFXTextField picTitle;
+    public TableView tblCashier;
+    public TableColumn colCashId;
+    public TableColumn colCashName;
+    public TableColumn colCashAddress;
+    public TableColumn colcashBirthDay;
 
     CashierBO cashierBO = new CashierIBOmpl();
     String picName;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        cashierBO = (CashierBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.CASHIER);
+        colCashId.setCellValueFactory(new PropertyValueFactory<>("castID"));
+        colCashName.setCellValueFactory(new PropertyValueFactory<>("castName"));
+        colCashAddress.setCellValueFactory(new PropertyValueFactory<>("castAddress"));
+        colcashBirthDay.setCellValueFactory(new PropertyValueFactory<>("castBirthDay"));
+        loadAllCashier();
+    }
+
+    private void loadAllCashier() {
+        try {
+            ObservableList<CashierDTO> allCashier = cashierBO.getAllCashier();
+            tblCashier.setItems(allCashier);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void setOnAction() {
         FileChooser fileChooser = new FileChooser();
@@ -51,20 +85,16 @@ public class AddCashierFormController {
         FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
         fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterPNG);
         File file = fileChooser.showOpenDialog(null);
-        picName = file.getName();
+        picName = file.getAbsolutePath();
 
-              try {
-                BufferedImage bufferedImage = ImageIO.read(file);
+        try {
+            BufferedImage bufferedImage = ImageIO.read(file);
+            Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+            imageid.setImage(image);
+        } catch (IOException ignored) {
 
-               Image image = SwingFXUtils.toFXImage(bufferedImage, null);
-                imageid.setImage(image);
-            } catch (IOException ignored) {
-
-            }
         }
-
-
-
+    }
 
 
     public void addOnAction(ActionEvent actionEvent) {
@@ -88,7 +118,7 @@ public class AddCashierFormController {
                 tray.setTitle(tilte);
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.SUCCESS);
-
+                loadAllCashier();
 
 
             } else {
@@ -116,62 +146,125 @@ public class AddCashierFormController {
     }
 
     public void searchOnAction(ActionEvent actionEvent) {
-
         try {
-            String cashierID = txtCashierID.getText();
-            CashierDTO searchCashier = cashierBO.searchCashier(cashierID);
-            if (searchCashier != null) {
-                txtCashierID.setText(searchCashier.getCastID());
-                txtCashierName.setText(searchCashier.getCastName());
-                txtCashierBirthDay.setValue(LocalDate.parse(searchCashier.getCastBirthDay()));
-                txtCashierAddress.setText(searchCashier.getCastAddress());
-                txtLogin.setText(searchCashier.getCastlogin());
-                picTitle.setText(searchCashier.getCastPhoto());
-                BufferedImage bufferedImage = null;
-                Image image = SwingFXUtils.toFXImage(bufferedImage, null);
-                imageid.setImage(image);
-                txtPassword.setText(searchCashier.getCastPassword());
-                try {
-                    bufferedImage = ImageIO.read(new File("C:\\Users\\Thilina Dilshan\\Desktop\\"));
-                    System.out.println("C:\\Users\\Thilina Dilshan\\Desktop\\"+picTitle+"");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            String castID = txtCashierID.getText();
+//            String castName = txtCashierName.getText();
+//            String castBirthDay = txtCashierBirthDay.getValue().toString();
+//            String castAddress =  txtCashierAddress.getText();
+//            String castPhoto =    picTitle.getText();
+//            String caslogin =     txtCashierID.getText();
+//            String caspassword =  txtPassword.getText();
+//            CashierDTO cashierDTO = new CashierDTO(castID, castName, castBirthDay, castAddress, castPhoto, caslogin, caspassword);
+            CashierDTO searchCashier = cashierBO.searchCashier(txtCashierID.getText());
+            System.out.println(searchCashier.toString());
+            txtCashierID.setText(searchCashier.getCastID());
+            txtCashierName.setText(searchCashier.getCastName());
+            txtCashierBirthDay.setValue(LocalDate.parse(searchCashier.getCastBirthDay()));
+            txtCashierAddress.setText(searchCashier.getCastAddress());
+            setPic(searchCashier.getCastPhoto());
+            txtPassword.setText(searchCashier.getCastPassword());
 
-                String tilte = "Customer Searched ";
-                String message = "Customer Is " + "" + txtCashierID.getText() + "";
-                tray.notification.TrayNotification tray = new TrayNotification();
-                AnimationType type = AnimationType.POPUP;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        //Customer Update Is Over(With Notification)
+    }
 
-                tray.setAnimationType(type);
-                tray.setTitle(tilte);
-                tray.setMessage(message);
-                tray.setNotificationType(NotificationType.SUCCESS);
-                tray.showAndDismiss(Duration.millis(3000));
-
-
-            } else {
-                String tilte = "Searched Customer Not Found";
-                String message = "Try Again";
-                tray.notification.TrayNotification tray = new TrayNotification();
-                AnimationType type = AnimationType.POPUP;
-
-                tray.setAnimationType(type);
-                tray.setTitle(tilte);
-                tray.setMessage(message);
-                tray.setNotificationType(NotificationType.ERROR);
-                tray.showAndDismiss(Duration.millis(3000));
-            }
-
-
-        } catch (SQLException | ClassNotFoundException throwables) {
-            throwables.printStackTrace();
+    private void setPic(String castPhoto) {
+        try {
+            File file = new File(castPhoto);
+            BufferedImage bufferedImage = ImageIO.read(file);
+            Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+            imageid.setImage(image);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        //Customer Search Is Over(With Notification)
     }
 
     public void testingIcon(ActionEvent actionEvent) {
+
+    }
+
+    public void cashierUpdateOnAction(ActionEvent actionEvent) {
+        try {
+            String castID = txtCashierID.getText();
+            String castName = txtCashierName.getText();
+            String castBirthDay = txtCashierBirthDay.getValue().toString();
+            String castAddress = txtCashierAddress.getText();
+            //String castPhoto = picName.intern();
+            String caslogin = txtLogin.getText();
+            String caspassword = txtPassword.getText();
+            CashierDTO cashierDTO = new CashierDTO(castID, castName, castBirthDay, castAddress, "castPhoto", caslogin, caspassword);
+            boolean updateCashier = cashierBO.updateCashier(cashierDTO);
+            String tilte;
+            String message;
+            TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.POPUP;
+            tray.setAnimationType(type);
+            if (updateCashier) {
+                tilte = "Update Successful";
+                message = "Cashier Is Updated";
+
+                tray.setTitle(tilte);
+                tray.setMessage(message);
+                tray.setNotificationType(NotificationType.SUCCESS);
+                loadAllCashier();
+            } else {
+                tilte = "Update Un Successful";
+                message = "Cashier Is Not Updated";
+
+                tray.setTitle(tilte);
+                tray.setMessage(message);
+                tray.setNotificationType(NotificationType.ERROR);
+            }
+            tray.showAndDismiss(Duration.millis(3000));
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        //Customer Update Is Over(With Notification)
+
+    }
+
+    public void cashierDeleteOnAction(ActionEvent actionEvent) {
+        String ID = txtCashierID.getText();
+        try {
+            boolean isDelete = cashierBO.deleteCashier(ID);
+            String tilte;
+            String message;
+            TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.POPUP;
+            tray.setAnimationType(type);
+            if (isDelete) {
+                tilte = "Delete Success";
+                message = "Cashier Is Deleted";
+                tray.setTitle(tilte);
+                tray.setMessage(message);
+                tray.setNotificationType(NotificationType.SUCCESS);
+                loadAllCashier();
+            } else {
+                tilte = "Cashier Not Found";
+                message = "Sorry";
+                tray.setTitle(tilte);
+                tray.setMessage(message);
+                tray.setNotificationType(NotificationType.NOTICE);
+            }
+            tray.showAndDismiss(Duration.millis(3000));
+        } catch (SQLException | ClassNotFoundException e1) {
+            e1.printStackTrace();
+        }
+        //Customer Delete Is Over(With Notification)
+    }
+
+
+    public void tblCashierClick() {
+        CashierDTO c = (CashierDTO) tblCashier.getSelectionModel().getSelectedItem();
+        txtCashierID.setText(c.getCastID());
+        txtCashierName.setText(c.getCastName());
+        txtCashierAddress.setText(c.getCastAddress());
+        txtCashierBirthDay.setValue(LocalDate.parse(c.getCastBirthDay()));
+        txtLogin.setText(c.getCastlogin());
+        txtPassword.setText(c.getCastPassword());
 
     }
 }

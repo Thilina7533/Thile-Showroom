@@ -1,9 +1,6 @@
 package dao;
 
-import dao.custom.impl.CashierDAOImpl;
-import dao.custom.impl.CustomerDAOImpl;
-import dao.custom.impl.ItemDAOImpl;
-import dao.custom.impl.SuplayDAOImpl;
+import dao.custom.impl.*;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;
@@ -19,10 +16,6 @@ public class DAOFactory {
         return daoFactory;
     }
 
-    public enum DAOTypes {
-        CUSTOMER, ITEM, ORDER, ORDERDETAILS, BATCH, CASHIER, PAYMENT, SUPLAY,
-    }
-
     public SuperDAO getDAO(DAOFactory.DAOTypes Types) {
         switch (Types) {
             case CUSTOMER:
@@ -33,10 +26,22 @@ public class DAOFactory {
                 return new CashierDAOImpl();
             case ITEM:
                 return new ItemDAOImpl();
+            case ORDERDETAILS:
+                return new OrderdetailDAOImpl();
+            case ORDER:
+                return new OrdersDAOImpl();
+            case QUERYDAO:
+                return new QueryDAOImpl();
+            case PAYMENT:
+                return new PaymentDAOImpl();
 
             default:
                 return null;
         }
 
+    }
+
+    public enum DAOTypes {
+        CUSTOMER, QUERYDAO, ITEM, ORDER, ORDERDETAILS, BATCH, CASHIER, PAYMENT, SUPLAY,
     }
 }

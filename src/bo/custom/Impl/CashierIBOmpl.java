@@ -8,6 +8,7 @@ import dto.CashierDTO;
 import dto.CustomerDTO;
 import entity.Cashier;
 import entity.Customer;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.awt.*;
@@ -22,12 +23,12 @@ public class CashierIBOmpl implements CashierBO {
 
     @Override
     public boolean deleteCashier(String id) throws ClassNotFoundException, SQLException {
-        return false;
+        return cashierDAO.delete(id);
     }
 
     @Override
     public boolean updateCashier(CashierDTO cashier) throws ClassNotFoundException, SQLException {
-        return false;
+        return cashierDAO.update(new Cashier(cashier.getCastID(),cashier.getCastName(),cashier.getCastBirthDay(),cashier.getCastAddress(), cashier.getCastPhoto(),cashier.getCastlogin(),cashier.getCastPassword()));
     }
 
     @Override
@@ -38,11 +39,17 @@ public class CashierIBOmpl implements CashierBO {
 
     @Override
     public ObservableList<CashierDTO> getAllCashier() throws ClassNotFoundException, SQLException {
-        return null;
+        ObservableList<Cashier> all =cashierDAO.getAll();
+        ObservableList<CashierDTO> allCashier = FXCollections.observableArrayList();
+        for (Cashier ID : all) {
+            CashierDTO dto = new CashierDTO(ID.getCastID(),ID.getCastName(),ID.getCastBirthDay(),ID.getCastAddress(),ID.getCastPhoto(),ID.getCastlogin(),ID.getCastPassword());
+            allCashier.add(dto);
+        }
+        return allCashier;
     }
 
     @Override
     public int getRowCount() throws ClassNotFoundException, SQLException {
-        return 0;
+        return cashierDAO.getRowCount();
     }
 }

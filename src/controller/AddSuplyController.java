@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
@@ -126,6 +127,7 @@ public class AddSuplyController implements Initializable {
                 txtAddress.setText(searchSaplay.getSuplayerAddress());
                 txtPhoneNo.setText(searchSaplay.getSuplayerPhone());
                 txtEmail.setText(searchSaplay.getSuplayerEmail());
+
                 String tilte = "Suplayer Searched ";
                 String message = "Suplayer Is " + "" + txtCompanyName.getText() + "";
                 tray.notification.TrayNotification tray = new TrayNotification();
@@ -232,6 +234,16 @@ public class AddSuplyController implements Initializable {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void tblSuplayClick(MouseEvent mouseEvent) {
+        SuplayDTO c = tblSup.getSelectionModel().getSelectedItem();
+        txtSupId.setText(c.getSuplayerID());
+        txtAddress.setText(c.getSuplayerAddress());
+        txtEmail.setText(c.getSuplayerEmail());
+        txtCompanyName.setText(c.getSuplayerName());
+        txtPhoneNo.setText(c.getSuplayerPhone());
+
     }
 }
 

@@ -5,10 +5,18 @@ import java.util.Date;
 
 public class Payment {
     private String payID;
-    private String custID;
-    private Date payDate;
-    private Time payTime;
+    private String custName;
     private Double amount;
+    private String Discount;
+    private String orderID;
+
+    public Payment(String payID, String custName, Double amount, String discount, String orderID) {
+        this.payID = payID;
+        this.custName = custName;
+        this.amount = amount;
+        Discount = discount;
+        this.orderID = orderID;
+    }
 
     public String getPayID() {
         return payID;
@@ -18,28 +26,12 @@ public class Payment {
         this.payID = payID;
     }
 
-    public String getCustID() {
-        return custID;
+    public String getCustName() {
+        return custName;
     }
 
-    public void setCustID(String custID) {
-        this.custID = custID;
-    }
-
-    public Date getPayDate() {
-        return payDate;
-    }
-
-    public void setPayDate(Date payDate) {
-        this.payDate = payDate;
-    }
-
-    public Time getPayTime() {
-        return payTime;
-    }
-
-    public void setPayTime(Time payTime) {
-        this.payTime = payTime;
+    public void setCustName(String custName) {
+        this.custName = custName;
     }
 
     public Double getAmount() {
@@ -50,14 +42,19 @@ public class Payment {
         this.amount = amount;
     }
 
-    public Payment() {
+    public String getDiscount() {
+        return Discount;
     }
 
-    public Payment(String payID, String custID, Date payDate, Time payTime, Double amount) {
-        this.payID = payID;
-        this.custID = custID;
-        this.payDate = payDate;
-        this.payTime = payTime;
-        this.amount = amount;
+    public void setDiscount(String discount) {
+        Discount = discount;
+    }
+
+    public String getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
     }
 }

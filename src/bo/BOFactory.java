@@ -1,13 +1,6 @@
 package bo;
 
-import bo.custom.Impl.CashierIBOmpl;
-import bo.custom.Impl.CustomerBOImpl;
-import bo.custom.Impl.ItemBOImpl;
-import bo.custom.Impl.SuplayBOImpl;
-import dto.CustomerDTO;
-import javafx.collections.ObservableList;
-
-import java.sql.SQLException;
+import bo.custom.Impl.*;
 
 public class BOFactory {
     private static BOFactory boFactory;
@@ -26,19 +19,21 @@ public class BOFactory {
     }
 
     public enum BOTypes {
-        CUSTOMER, ITEM, ORDER, ORDERDETAILS, CASHIER, SUPLAY, PO;
+        CUSTOMER, ITEM, ORDER, CASHIER, SUPLAY, PO;
     }
 
     public SuperBO getBO(BOTypes types) {
         switch (types) {
             case CUSTOMER:
                 return new CustomerBOImpl() ;
+            case ITEM:
+                return new ItemBOImpl() ;
             case SUPLAY:
                 return new SuplayBOImpl() ;
             case CASHIER:
                 return new CashierIBOmpl() ;
-            case ITEM:
-                return new ItemBOImpl() ;
+            case PO:
+                return new PlaceOrderBOImpl() ;
 
                 }
         return null;

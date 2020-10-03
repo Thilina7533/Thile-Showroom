@@ -1,25 +1,36 @@
 package controller;
 
+import animatefx.animation.FadeIn;
+import bo.BOFactory;
+import bo.custom.CashierBO;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import dto.CashierDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 public class LoginFormController {
     public JFXTextField txtUserName;
     public JFXPasswordField txtPassword;
     public AnchorPane root;
+    CashierBO cashierBO;
 
 
     public void LoginOnAction() throws IOException {
@@ -60,19 +71,22 @@ public class LoginFormController {
                 tray.showAndDismiss(Duration.millis(3000));
 
             } else {
+                Stage window = (Stage) this.root.getScene().getWindow();
+                window.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/CashierForm.fxml"))));
+                window.centerOnScreen();
 
-                txtUserName.setFocusColor(Paint.valueOf("red"));
-                txtUserName.requestFocus();
-                String tilte = "Sign In";
-                String message = "Error Username " + "'" + txtUserName.getText() + "'" + ", and Password " + "'" + txtPassword.getText() + "'" + " Wrong";
-                tray.notification.TrayNotification tray = new TrayNotification();
-                AnimationType type = AnimationType.POPUP;
-
-                tray.setAnimationType(type);
-                tray.setTitle(tilte);
-                tray.setMessage(message);
-                tray.setNotificationType(NotificationType.ERROR);
-                tray.showAndDismiss(Duration.millis(3000));
+//                txtUserName.setFocusColor(Paint.valueOf("red"));
+//                txtUserName.requestFocus();
+//                String tilte = "Sign In";
+//                String message = "Error Username " + "'" + txtUserName.getText() + "'" + ", and Password " + "'" + txtPassword.getText() + "'" + " Wrong";
+//                tray.notification.TrayNotification tray = new TrayNotification();
+//                AnimationType type = AnimationType.POPUP;
+//
+//                tray.setAnimationType(type);
+//                tray.setTitle(tilte);
+//                tray.setMessage(message);
+//                tray.setNotificationType(NotificationType.ERROR);
+//                tray.showAndDismiss(Duration.millis(3000));
             }
         } else {
             String tilte = "Sign In";

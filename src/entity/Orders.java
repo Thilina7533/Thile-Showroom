@@ -5,13 +5,25 @@ import java.util.Date;
 
 public class Orders {
     private String orderID;
-    private Date orderDate;
-    private Time orderTime;
-    private String custID;
+    private String orderDate;
+    private String orderTime;
+
     private String custName;
     private String custPhoneNo;
     private String custAddress;
     private String custEmail;
+    private String castID;
+
+    public Orders(String orderID, String orderDate, String orderTime, String custName, String custPhoneNo, String custAddress, String custEmail, String castID) {
+        this.orderID = orderID;
+        this.orderDate = orderDate;
+        this.orderTime = orderTime;
+        this.custName = custName;
+        this.custPhoneNo = custPhoneNo;
+        this.custAddress = custAddress;
+        this.custEmail = custEmail;
+        this.castID = castID;
+    }
 
     public String getOrderID() {
         return orderID;
@@ -21,28 +33,20 @@ public class Orders {
         this.orderID = orderID;
     }
 
-    public Date getOrderDate() {
+    public String getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(String orderDate) {
         this.orderDate = orderDate;
     }
 
-    public Time getOrderTime() {
+    public String getOrderTime() {
         return orderTime;
     }
 
-    public void setOrderTime(Time orderTime) {
+    public void setOrderTime(String orderTime) {
         this.orderTime = orderTime;
-    }
-
-    public String getCustID() {
-        return custID;
-    }
-
-    public void setCustID(String custID) {
-        this.custID = custID;
     }
 
     public String getCustName() {
@@ -77,17 +81,11 @@ public class Orders {
         this.custEmail = custEmail;
     }
 
-    public Orders() {
+    public String getCastID() {
+        return castID;
     }
 
-    public Orders(String orderID, Date orderDate, Time orderTime, String custID, String custName, String custPhoneNo, String custAddress, String custEmail) {
-        this.orderID = orderID;
-        this.orderDate = orderDate;
-        this.orderTime = orderTime;
-        this.custID = custID;
-        this.custName = custName;
-        this.custPhoneNo = custPhoneNo;
-        this.custAddress = custAddress;
-        this.custEmail = custEmail;
+    public void setCastID(String castID) {
+        this.castID = castID;
     }
 }

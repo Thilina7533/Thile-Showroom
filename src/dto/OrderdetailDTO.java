@@ -4,16 +4,14 @@ public class OrderdetailDTO {
     private String orderID;
     private String itemCode;
     private Integer orderQTY;
-    private Double Discount;
+    private Double unitPrice;
 
-    public OrderdetailDTO() {
-    }
 
-    public OrderdetailDTO(String orderID, String itemCode, Integer orderQTY, Double discount) {
+    public OrderdetailDTO(String orderID, String itemCode, Integer orderQTY, Double unitPrice) {
         this.orderID = orderID;
         this.itemCode = itemCode;
         this.orderQTY = orderQTY;
-        Discount = discount;
+        this.unitPrice = unitPrice;
     }
 
     public String getOrderID() {
@@ -40,11 +38,11 @@ public class OrderdetailDTO {
         this.orderQTY = orderQTY;
     }
 
-    public Double getDiscount() {
-        return Discount;
+    public Double getUnitPrice() {
+        return unitPrice;
     }
 
-    public void setDiscount(Double discount) {
-        Discount = discount;
+    public void setUnitPrice(Double unitPrice) {
+        this.unitPrice = unitPrice;
     }
 }

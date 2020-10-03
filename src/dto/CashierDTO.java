@@ -76,6 +76,23 @@ public class CashierDTO {
     public void setCastPassword(String castPassword) {
         this.castPassword = castPassword;
     }
+
+    public String getPosition() {
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "CashierDTO{" +
+                "castID='" + castID + '\'' +
+                ", castName='" + castName + '\'' +
+                ", castBirthDay='" + castBirthDay + '\'' +
+                ", castAddress='" + castAddress + '\'' +
+                ", castPhoto='" + castPhoto + '\'' +
+                ", castlogin='" + castlogin + '\'' +
+                ", castPassword='" + castPassword + '\'' +
+                '}';
+    }
 }
 
 

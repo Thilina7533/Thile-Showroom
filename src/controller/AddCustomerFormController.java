@@ -198,7 +198,7 @@ public class AddCustomerFormController implements Initializable {
                 txtprovince.setValue(searchCustomer.getProvince());
                 txtRegDate.setText(searchCustomer.getRegDate());
                 String tilte = "Customer Searched ";
-                String message = "Customer Is "+""+txtcustName.getText()+"";
+                String message = "Customer Is " + "" + txtcustName.getText() + "";
                 tray.notification.TrayNotification tray = new TrayNotification();
                 AnimationType type = AnimationType.POPUP;
 
@@ -267,6 +267,19 @@ public class AddCustomerFormController implements Initializable {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-            //Customer Update Is Over(With Notification)
+        //Customer Update Is Over(With Notification)
+    }
+
+    public void tblMouseClick() {
+        CustomerDTO c = tblCustomer.getSelectionModel().getSelectedItem();
+        txtcustID.setText(c.getCustID());
+        txtcustTital.setValue(c.getCustTital());
+        txtcustName.setText(c.getCustName());
+        txtPhoneNo.setText(c.getCustPhoneNo());
+        txtcustAddress.setText(c.getCustAddress());
+        txtEmail.setText(c.getCustEmail());
+        txtcity.setText(c.getCity());
+        txtprovince.setValue(c.getProvince());
+        txtRegDate.setText(c.getRegDate());
     }
 }

@@ -3,6 +3,7 @@ package dao.custom.impl;
 import dao.CrudUtil;
 import dao.custom.CustomerDAO;
 import entity.Customer;
+import entity.Orderdetail;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -24,9 +25,11 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Override
     public int getRowCount() throws ClassNotFoundException, SQLException {
         String SQL = "SELECT COUNT(custID) FROM customer";
-        ResultSet rst = CrudUtil.executeQuery(SQL, new Object[0]);
-        return rst.next() ? rst.getInt(1) : -1;
-    }
+        ResultSet resultSet = CrudUtil.executeQuery(SQL);
+        if (resultSet.next()){
+            return resultSet.getInt(1);
+        }
+        return -1;}
 
     @Override
     public boolean add(Customer ID) throws ClassNotFoundException, SQLException {

@@ -3,8 +3,8 @@ package dao.custom.impl;
 import dao.CrudUtil;
 import dao.custom.CashierDAO;
 import entity.Cashier;
-import entity.Customer;
-import entity.Suplay;
+import entity.Orderdetail;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
@@ -13,7 +13,12 @@ import java.sql.SQLException;
 public class CashierDAOImpl implements CashierDAO {
     @Override
     public String getCashierLastId() throws Exception {
-        return null;
+        String sql = "select max(id) from cashier";
+        ResultSet rst = CrudUtil.executeQuery(sql);
+        if (rst.next()) {
+            return rst.getString(1);
+        }
+        return "";
     }
 
     @Override
@@ -29,12 +34,14 @@ public class CashierDAOImpl implements CashierDAO {
 
     @Override
     public boolean delete(String ID) throws ClassNotFoundException, SQLException {
-        return false;
+        String sql = "DELETE FROM cashier WHERE castID= ?";
+        return CrudUtil.executeUpdate(sql, ID);
     }
 
     @Override
     public boolean update(Cashier ID) throws ClassNotFoundException, SQLException {
-        return false;
+        String sql = "update cashier set castName =?,castBirthDay=?,castAddress=?,castPhoto=?,caslogin=?,caspassword=? where castID=?";
+        return CrudUtil.executeUpdate(sql, ID.getCastID(), ID.getCastName(), ID.getCastBirthDay(), ID.getCastAddress(), ID.getCastPhoto(), ID.getCastlogin(), ID.getCastPassword());
     }
 
     @Override
@@ -49,6 +56,12 @@ public class CashierDAOImpl implements CashierDAO {
 
     @Override
     public ObservableList<Cashier> getAll() throws ClassNotFoundException, SQLException {
-        return null;
+        String sql = "select * from cashier";
+        ResultSet rst = CrudUtil.executeQuery(sql);
+        ObservableList<Cashier> allCashier = FXCollections.observableArrayList();
+        while (rst.next()) {
+            allCashier.add(new Cashier(rst.getString(1), rst.getString(2), rst.getString(3), rst.getString(4), rst.getString(5), rst.getString(6), rst.getString(7)));
+        }
+        return allCashier;
     }
 }

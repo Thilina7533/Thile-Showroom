@@ -1,6 +1,8 @@
 package dao;
 
-import entity.Customer;
+import com.mysql.cj.x.protobuf.MysqlxCrud;
+import entity.Orderdetail;
+import entity.Orders;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;

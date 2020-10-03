@@ -2,6 +2,7 @@ package controller;
 
 
 import animatefx.animation.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
@@ -27,10 +28,6 @@ public class dashboardController implements Initializable {
 
     }
 
-    public void AddItemOnAction() throws IOException {
-        setUi("AddItemForm");
-        new FadeIn(context).play();
-    }
 
     public void btnAddCashier() throws IOException {
         setUi("AddCashierForm");
@@ -72,9 +69,16 @@ public class dashboardController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             DashBoardOnAction();
+            new FadeIn(context).play();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void AddItemOnAction(ActionEvent actionEvent) throws IOException {
+
+        setUi("AddItemForm");
+        new FadeIn(context).play();
     }
 }
 

@@ -1,28 +1,53 @@
 package controller;
 
 
-import javafx.collections.FXCollections;
+import db.DBConnection;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import static javafx.collections.FXCollections.observableArrayList;
+
 public class DashboardFormController implements Initializable {
-
-
+    public Label txtTotalCustomers;
     @FXML
     private AreaChart<?, ?> AreaChart;
     @FXML
     private javafx.scene.chart.PieChart PieChart;
+    private void initInfo() throws SQLException, ClassNotFoundException {
+        ResultSet set = DBConnection.getInstance().
+                getConnection().
+                prepareStatement
+                        ("SELECT COUNT(custID) FROM Customer")
+                .executeQuery();
+        if (set.next()) {
+            int customerCount = set.getInt(1);
+            txtTotalCustomers.setText(String.valueOf(customerCount));
+        }
+    }
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+        try {
+            initInfo();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        ObservableList<PieChart.Data> pieChartData = observableArrayList(
                 new PieChart.Data("January", 13),
                 new PieChart.Data("February", 25),
                 new PieChart.Data("March", 10),
@@ -35,7 +60,7 @@ public class DashboardFormController implements Initializable {
                 new PieChart.Data("September", 32),
                 new PieChart.Data("October", 24),
                 new PieChart.Data("November", 22),
-                new PieChart.Data("Desember", 22));
+                new PieChart.Data("December", 22));
         PieChart.setData(pieChartData);
 
         XYChart.Series series =new XYChart.Series();

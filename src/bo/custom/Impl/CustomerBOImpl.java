@@ -11,6 +11,10 @@ import javafx.collections.ObservableList;
 import java.sql.SQLException;
 
 public class CustomerBOImpl implements CustomerBO {
+//    dao.search(id)
+//    searchCustomer(String ID){
+//    customerDAO.searsh(id)
+//}
     CustomerDAO customerDAO = (CustomerDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.CUSTOMER);
     @Override
     public boolean addCustomer(CustomerDTO ID) throws ClassNotFoundException, SQLException {

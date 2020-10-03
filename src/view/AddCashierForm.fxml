@@ -15,13 +15,12 @@
 
 <AnchorPane prefHeight="908.0" prefWidth="1226.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddCashierFormController">
    <children>
-      <TableView layoutX="14.0" layoutY="465.0" prefHeight="425.0" prefWidth="1201.0" stylesheets="@../css/fullpackstyling.css">
+      <TableView fx:id="tblCashier" layoutX="14.0" layoutY="465.0" onMousePressed="#tblCashierClick" prefHeight="425.0" prefWidth="1201.0" stylesheets="@../css/fullpackstyling.css">
         <columns>
-          <TableColumn prefWidth="168.0" text="Cashier ID" />
-          <TableColumn prefWidth="239.0" text="Cashier Name" />
-            <TableColumn prefWidth="296.0" text="Address" />
-            <TableColumn prefWidth="263.0" text="Login" />
-            <TableColumn prefWidth="234.0" text="Password" />
+          <TableColumn fx:id="colCashId" prefWidth="192.00003051757812" text="Cashier ID" />
+          <TableColumn fx:id="colCashName" prefWidth="321.0" text="Cashier Name" />
+            <TableColumn fx:id="colCashAddress" prefWidth="385.0" text="Address" />
+            <TableColumn fx:id="colcashBirthDay" prefWidth="302.0" text="Birth Day" />
         </columns>
       </TableView>
       <JFXTextField fx:id="txtCashierID" labelFloat="true" layoutX="29.0" layoutY="107.0" prefHeight="31.0" prefWidth="230.0" promptText="Cashier ID" />
@@ -37,17 +36,13 @@
          <font>
             <Font name="System Bold" size="19.0" />
          </font></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="189.0" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #0fb9b1;" text="Update" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="225.0" onAction="#cashierUpdateOnAction" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #0fb9b1;" text="Update" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="267.0" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #485460;" text="Delete" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="345.0" onAction="#cashierDeleteOnAction" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #485460;" text="Delete" textFill="WHITE">
          <font>
             <Font name="System Bold" size="23.0" />
-         </font></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="352.0" onAction="#testingIcon" prefHeight="57.0" prefWidth="193.0" style="-fx-background-color: #ef5777;" text="Get All" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="21.0" />
          </font></JFXButton>
       <ImageView fitHeight="100.0" fitWidth="97.0" layoutX="1114.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
          <image>

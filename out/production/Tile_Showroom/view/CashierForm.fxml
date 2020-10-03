@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +12,8 @@
    <children>
       <Pane prefHeight="81.0" prefWidth="30.0" style="-fx-background-color: #6c5ce7;" />
       <Pane layoutY="849.0" prefHeight="89.0" prefWidth="30.0" style="-fx-background-color: #6c5ce7;" />
-      <Pane fx:id="context" layoutX="197.0" layoutY="61.0" prefHeight="872.0" prefWidth="1226.0" />
+      <Pane prefHeight="89.0" prefWidth="30.0" style="-fx-background-color: #d300f0;" />
+      <Pane fx:id="context" layoutX="197.0" layoutY="12.0" prefHeight="872.0" prefWidth="1226.0" />
       <VBox alignment="TOP_CENTER" prefHeight="938.0" prefWidth="185.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0); -fx-background-radius: 30;">
          <children>
             <ImageView fitHeight="147.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
@@ -21,7 +21,7 @@
                   <Image url="@../resources/logo2.png" />
                </image>
             </ImageView>
-            <JFXButton buttonType="RAISED" prefHeight="108.0" prefWidth="184.0" text="PLACE ORDER  " textFill="WHITE" VBox.vgrow="SOMETIMES">
+            <JFXButton buttonType="RAISED" onAction="#btnPlaceOrderOnAction" prefHeight="108.0" prefWidth="184.0" text="PLACE ORDER  " textFill="WHITE" VBox.vgrow="SOMETIMES">
                <graphic>
                   <ImageView fitHeight="41.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -40,14 +40,33 @@
                         <Font name="System Bold" size="32.0" />
                      </font>
                   </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="1.0" layoutY="-11.0" onAction="#btnCustomerOnAction" prefHeight="108.0" prefWidth="184.0" text="CUSTOMER     " textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="41.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/customer.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
                </children>
             </Pane>
+            <JFXButton buttonType="RAISED" onAction="#btnAboutOnAction" prefHeight="108.0" prefWidth="184.0" text=" ABOUT         " textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/About.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
          </children>
       </VBox>
-      <Label layoutX="1237.0" layoutY="15.0" prefHeight="28.0" prefWidth="121.0" text="Jesika Roodrigo">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

@@ -1,13 +1,12 @@
 package bo.custom;
-
 import bo.SuperBO;
-import dto.CustomerDTO;
 import dto.ItemDTO;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
 
 public interface ItemBO extends SuperBO {
+
     boolean addItem(ItemDTO Item) throws ClassNotFoundException, SQLException;
 
     boolean deleteItem(String id) throws ClassNotFoundException, SQLException;
@@ -19,4 +18,6 @@ public interface ItemBO extends SuperBO {
     ObservableList<ItemDTO> getAllItem() throws ClassNotFoundException, SQLException;
 
     int getRowCount()throws ClassNotFoundException,SQLException;
+
 }
+

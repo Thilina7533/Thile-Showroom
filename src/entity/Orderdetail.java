@@ -3,8 +3,16 @@ package entity;
 public class Orderdetail {
     private String orderID;
     private String itemCode;
-    private Integer orderQTY;
-    private Double Discount;
+    private String orderQTY;
+    private String unitPrice;
+
+
+    public Orderdetail(String orderID, String itemCode, String orderQTY, String unitPrice) {
+        this.orderID = orderID;
+        this.itemCode = itemCode;
+        this.orderQTY = orderQTY;
+        this.unitPrice = unitPrice;
+    }
 
     public String getOrderID() {
         return orderID;
@@ -22,29 +30,19 @@ public class Orderdetail {
         this.itemCode = itemCode;
     }
 
-    public Integer getOrderQTY() {
+    public String getOrderQTY() {
         return orderQTY;
     }
 
-    public void setOrderQTY(Integer orderQTY) {
+    public void setOrderQTY(String orderQTY) {
         this.orderQTY = orderQTY;
     }
 
-    public Double getDiscount() {
-        return Discount;
+    public String getUnitPrice() {
+        return unitPrice;
     }
 
-    public void setDiscount(Double discount) {
-        Discount = discount;
-    }
-
-    public Orderdetail() {
-    }
-
-    public Orderdetail(String orderID, String itemCode, Integer orderQTY, Double discount) {
-        this.orderID = orderID;
-        this.itemCode = itemCode;
-        this.orderQTY = orderQTY;
-        Discount = discount;
+    public void setUnitPrice(String unitPrice) {
+        this.unitPrice = unitPrice;
     }
 }

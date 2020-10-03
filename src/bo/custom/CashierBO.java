@@ -8,6 +8,10 @@ import javafx.collections.ObservableList;
 import java.sql.SQLException;
 
 public interface CashierBO extends SuperBO {
+    static CashierDTO getValidated(String text) {
+        return null;
+    }
+
     boolean addCashier(CashierDTO cashier) throws ClassNotFoundException, SQLException;
 
     boolean deleteCashier(String id) throws ClassNotFoundException, SQLException;
