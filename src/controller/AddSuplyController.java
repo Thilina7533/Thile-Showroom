@@ -7,6 +7,8 @@ import com.jfoenix.controls.JFXTextField;
 import dto.SuplayDTO;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -86,6 +88,7 @@ public class AddSuplyController implements Initializable {
             AnimationType type = AnimationType.POPUP;
             tray.setAnimationType(type);
             if (isAdded) {
+                (new Alert(Alert.AlertType.CONFIRMATION, "Suplayer Added Successfully", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Added Successful";
                 message = "Suplayer Is Added";
                 tray.setTitle(tilte);
@@ -94,6 +97,7 @@ public class AddSuplyController implements Initializable {
                 loadAllSuplay();
 
             } else {
+                (new Alert(Alert.AlertType.ERROR, "Suplayer Not Added", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Added Un Successful";
                 message = "Suplayer Is Not Added";
                 tray.setTitle(tilte);
@@ -174,6 +178,7 @@ public class AddSuplyController implements Initializable {
             AnimationType type = AnimationType.POPUP;
             tray.setAnimationType(type);
             if (updateCustomer) {
+                (new Alert(Alert.AlertType.CONFIRMATION, "Suplayer Update Successfully", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Update Successful";
                 message = "Suplayer Is Updated";
 
@@ -182,6 +187,7 @@ public class AddSuplyController implements Initializable {
                 tray.setNotificationType(NotificationType.SUCCESS);
                 loadAllSuplay();
             } else {
+                (new Alert(Alert.AlertType.ERROR, "Supalyer Not Update", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Update Un Successful";
                 message = "Customer Is Not Updated";
 
@@ -207,6 +213,7 @@ public class AddSuplyController implements Initializable {
             AnimationType type = AnimationType.POPUP;
             tray.setAnimationType(type);
             if (isDelete) {
+                (new Alert(Alert.AlertType.CONFIRMATION, "Suplayer Delete Successfully", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Delete Success";
                 message = "Suplayer Is Deleted";
                 tray.setTitle(tilte);
@@ -214,6 +221,7 @@ public class AddSuplyController implements Initializable {
                 tray.setNotificationType(NotificationType.SUCCESS);
                 loadAllSuplay();
             } else {
+                (new Alert(Alert.AlertType.ERROR, "Suplayer Not Delete", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Suplayer Not Found";
                 message = "Sorry";
                 tray.setTitle(tilte);

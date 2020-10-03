@@ -8,20 +8,26 @@ import bo.custom.Impl.ItemBOImpl;
 import bo.custom.Impl.PlaceOrderBOImpl;
 import bo.custom.ItemBO;
 import bo.custom.PlaceOrderBO;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import dto.*;
+import entity.Item;
 import entity.Orders;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -37,6 +43,7 @@ import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
+import javax.security.auth.RefreshFailedException;
 import javax.swing.*;
 
 public class PlaceOrderController implements Initializable {
@@ -47,14 +54,12 @@ public class PlaceOrderController implements Initializable {
     public JFXTextField txtCustPhone;
     public JFXTextField txtCustAddress;
     public JFXTextField txtCustEmail;
-    public Label txtQty;
     public Label txtTotal;
     public TableView<dtmTM> dtm;
     public TableColumn colitemcode;
     public TableColumn colitemname;
     public TableColumn colprice;
     public TableColumn colqty;
-    public TableColumn coltotal;
     public JFXTextField txtItemCode;
     public JFXTextField txtItemName;
     public JFXTextField txtPrice;
@@ -64,6 +69,7 @@ public class PlaceOrderController implements Initializable {
     public Label finalTotal;
     public JFXTextField Discount;
     public Label txtCashierID;
+    public JFXButton btnRemove;
     CustomerBO customerBO = new CustomerBOImpl();
     CustomerDTO customerDTO;
     ItemDTO itemDTO;
@@ -77,13 +83,10 @@ public class PlaceOrderController implements Initializable {
     int count;
     int total;
     dtmTM dtmTM;
-    // int lastTotal;
-
+    private int index;
 
     public PlaceOrderController() {
-
     }
-//ai utoo reconnct wenne. connection ekata hikilada
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -145,7 +148,7 @@ public class PlaceOrderController implements Initializable {
     public void generateDateTime() {
         this.txtDate.setText(LocalDate.now().toString());
         Timeline timeline = new Timeline(new KeyFrame(Duration.ZERO, (e) -> {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
             this.txtTime.setText(LocalDateTime.now().format(formatter));
         }), new KeyFrame(Duration.seconds(1.0D)));
         timeline.setCycleCount(-1);
@@ -234,6 +237,29 @@ public class PlaceOrderController implements Initializable {
         txtTotal.setText(String.valueOf(total));
     }
 
+    public void RemoveOnAction(ActionEvent actionEvent) {
+        items.remove(index);
+        dtm.setItems(FXCollections.observableArrayList(items));
+        reloadTotalQty();
+    }
+
+    private void reloadTotalQty() {
+        int qty = 0;
+        int total = 0;
+        for (dtmTM dtmTM : items) {
+            qty += Integer.parseInt(dtmTM.getQTY());
+            System.out.println(Integer.parseInt(dtmTM.getQTY()) + " qty");
+            double p = Double.parseDouble(dtmTM.getPrice());
+            System.out.println(p + " p");
+            total += p * Integer.parseInt(dtmTM.getQTY());
+//            System.out.println(Integer.parseInt(dtmTM.getPrice()+" price"));
+        }
+        System.out.println(qty + "total qty");
+        System.out.println(total + "total total");
+        txtQtyCount.setText(qty + "");
+        txtTotal.setText(total + "");
+    }
+
 
     public void tblMouseClick(MouseEvent mouseEvent) {
         dtmTM c = dtm.getSelectionModel().getSelectedItem();
@@ -256,8 +282,9 @@ public class PlaceOrderController implements Initializable {
     }
 
     public void placeOrderOnAction(ActionEvent actionEvent) {
-        // placeOrderBO = (PlaceOrderBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.PO);
 
+        placeOrderBO = (PlaceOrderBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.PO);
+        //mona huttakda me
 
         //OrderTable details
         String orderID = txtOrderId.getText();
@@ -268,11 +295,47 @@ public class PlaceOrderController implements Initializable {
         String custAddress = txtCustAddress.getText();
         String custEmail = txtCustEmail.getText();
         String castID = txtCashierID.getText();
-//        items
 
+        double amount = Double.parseDouble(finalTotal.getText());
+        String discount = Discount.getText();
+
+//        items
+        try {
+            boolean placeOrdered = placeOrderBO.placeOrder(new OrdersDTO(orderID, orderDate, orderTime, custName, custPhoneNo, custAddress, custEmail, castID, items, amount, discount));
+
+            if (placeOrdered) {
+
+                OrderDetailFieldRest();
+                (new Alert(Alert.AlertType.CONFIRMATION, "Order Successfully", new ButtonType[]{ButtonType.OK})).show();
+                tray.notification.TrayNotification tray = new TrayNotification();
+                AnimationType type = AnimationType.POPUP;
+                tray.setAnimationType(type);
+                tray.setMessage("Successfully");
+                tray.setNotificationType(NotificationType.SUCCESS);
+                tray.showAndDismiss(Duration.millis(3000));
+                System.out.println("order placed");
+            } else {
+                System.out.println("fuck shit");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         //}
 
 
+    }
+
+
+    public void tbltemsOnMouoseReleased(MouseEvent mouseEvent) {
+        index = dtm.getSelectionModel().getSelectedIndex();
+        btnRemove.setDisable(false);
+    }
+
+    public void OrderDetailFieldRest() {
+        txtCustName.setText(null);
+        txtCustPhone.setText(null);
+        txtCustAddress.setText(null);
+        txtCustEmail.setText(null);
     }
 }
 

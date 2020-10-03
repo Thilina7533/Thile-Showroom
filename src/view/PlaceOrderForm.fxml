@@ -178,7 +178,7 @@
          <DropShadow />
       </effect>
    </Pane>
-   <TableView fx:id="dtm" layoutX="33.0" layoutY="438.0" onMousePressed="#tblMouseClick" prefHeight="324.0" prefWidth="1171.0" stylesheets="@../css/fullpackstyling.css">
+   <TableView fx:id="dtm" layoutX="33.0" layoutY="438.0" onMousePressed="#tblMouseClick" onMouseReleased="#tbltemsOnMouoseReleased" prefHeight="324.0" prefWidth="1171.0" stylesheets="@../css/fullpackstyling.css">
       <columns>
          <TableColumn fx:id="colitemcode" prefWidth="206.0" text="Item Code" />
          <TableColumn fx:id="colitemname" prefWidth="344.0" text="Item Name" />
@@ -201,12 +201,12 @@
          <Font name="System Bold" size="18.0" />
       </font>
    </Label>
-   <Label fx:id="txtCashierID" layoutX="152.0" layoutY="804.0" prefHeight="31.0" prefWidth="103.0">
+   <Label fx:id="txtCashierID" layoutX="152.0" layoutY="804.0" prefHeight="31.0" prefWidth="103.0" text="QQ001">
       <font>
          <Font name="System Bold" size="18.0" />
       </font>
    </Label>
-   <JFXButton buttonType="RAISED" layoutX="570.0" layoutY="794.0" prefHeight="52.0" prefWidth="148.0" style="-fx-background-color: #6c5ce7; -fx-background-radius: 30;" text="REMOVE" textFill="WHITE">
+   <JFXButton fx:id="btnRemove" buttonType="RAISED" disable="true" layoutX="570.0" layoutY="794.0" onAction="#RemoveOnAction" prefHeight="52.0" prefWidth="148.0" style="-fx-background-color: #6c5ce7; -fx-background-radius: 30;" text="REMOVE" textFill="WHITE">
       <font>
          <Font name="System Bold" size="18.0" />
       </font>

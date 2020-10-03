@@ -5,6 +5,7 @@ import bo.custom.CashierBO;
 import bo.custom.CustomerBO;
 import bo.custom.Impl.CashierIBOmpl;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 
 import com.sun.deploy.xml.GeneralEntity;
@@ -14,10 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -48,7 +46,7 @@ public class AddCashierFormController implements Initializable {
     public JFXTextField txtLogin;
     public ImageView imageid;
     public JFXButton setOnAction;
-    public DatePicker txtCashierBirthDay;
+    public JFXDatePicker txtCashierBirthDay;
     public JFXTextField txtCashierAddress;
     public JFXTextField picTitle;
     public TableView tblCashier;
@@ -113,6 +111,7 @@ public class AddCashierFormController implements Initializable {
             AnimationType type = AnimationType.POPUP;
             tray.setAnimationType(type);
             if (isAdded) {
+                (new Alert(Alert.AlertType.CONFIRMATION, "Cashier Added Successfully", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Added Successful";
                 message = "Cashier Is Added";
                 tray.setTitle(tilte);
@@ -122,6 +121,7 @@ public class AddCashierFormController implements Initializable {
 
 
             } else {
+                (new Alert(Alert.AlertType.ERROR, "Cashier Not Added ", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Added Un Successful";
                 message = "Cashier Is Not Added";
                 tray.setTitle(tilte);
@@ -203,6 +203,7 @@ public class AddCashierFormController implements Initializable {
             AnimationType type = AnimationType.POPUP;
             tray.setAnimationType(type);
             if (updateCashier) {
+                (new Alert(Alert.AlertType.CONFIRMATION, "Cashier Not Update ", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Update Successful";
                 message = "Cashier Is Updated";
 
@@ -211,6 +212,7 @@ public class AddCashierFormController implements Initializable {
                 tray.setNotificationType(NotificationType.SUCCESS);
                 loadAllCashier();
             } else {
+                (new Alert(Alert.AlertType.ERROR, "Cashier Not Update", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Update Un Successful";
                 message = "Cashier Is Not Updated";
 
@@ -236,16 +238,18 @@ public class AddCashierFormController implements Initializable {
             AnimationType type = AnimationType.POPUP;
             tray.setAnimationType(type);
             if (isDelete) {
+                (new Alert(Alert.AlertType.CONFIRMATION, "Cashier Delete Successfully", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Delete Success";
                 message = "Cashier Is Deleted";
-                tray.setTitle(tilte);
+                tray.setTitle("Delete Success");
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.SUCCESS);
                 loadAllCashier();
             } else {
+                (new Alert(Alert.AlertType.ERROR, "Cashier Not Deleted", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Cashier Not Found";
                 message = "Sorry";
-                tray.setTitle(tilte);
+                tray.setTitle("Cashier Not Found");
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.NOTICE);
             }

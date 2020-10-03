@@ -22,8 +22,8 @@ public class AppInitializer extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-//            root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("view/LoginForm.fxml")));
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("view/LoginForm.fxml")));
+//            root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("view/PlaceOrderForm.fxml")));
             Scene scene = new Scene(root);
             primaryStage.initStyle(StageStyle.TRANSPARENT);
             primaryStage.setScene(scene);

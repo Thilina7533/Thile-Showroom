@@ -10,6 +10,8 @@ import dto.ItemDTO;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -112,6 +114,7 @@ public class AddItemFormController implements Initializable {
             AnimationType type = AnimationType.POPUP;
             tray.setAnimationType(type);
             if (isAdded) {
+                (new Alert(Alert.AlertType.CONFIRMATION, "Item Added Successfully", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Added Successful";
                 message = "Item Is Added";
                 tray.setTitle(tilte);
@@ -119,6 +122,7 @@ public class AddItemFormController implements Initializable {
                 tray.setNotificationType(NotificationType.SUCCESS);
                 loadAllItems();
             } else {
+                (new Alert(Alert.AlertType.ERROR, "Item Not Added ", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Added Un Successful";
                 message = "Item Is Not Added";
                 tray.setTitle(tilte);
@@ -205,6 +209,7 @@ public class AddItemFormController implements Initializable {
             AnimationType type = AnimationType.POPUP;
             tray.setAnimationType(type);
             if (updateItem) {
+                (new Alert(Alert.AlertType.CONFIRMATION, "Item Update Successfully", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Update Successful";
                 message = "Item Is Updated";
 
@@ -213,6 +218,7 @@ public class AddItemFormController implements Initializable {
                 tray.setNotificationType(NotificationType.SUCCESS);
                 loadAllItems();
             } else {
+                (new Alert(Alert.AlertType.ERROR, "Item Not Update", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Update Un Successful";
                 message = "Item Is Not Updated";
 
@@ -237,6 +243,7 @@ public class AddItemFormController implements Initializable {
             AnimationType type = AnimationType.POPUP;
             tray.setAnimationType(type);
             if (isDelete) {
+                (new Alert(Alert.AlertType.CONFIRMATION, "Item Delete Successfully", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Delete Success";
                 message = "Item Is Deleted";
                 tray.setTitle(tilte);
@@ -244,6 +251,7 @@ public class AddItemFormController implements Initializable {
                 tray.setNotificationType(NotificationType.SUCCESS);
                 loadAllItems();
             } else {
+                (new Alert(Alert.AlertType.ERROR, "Item Not Delete", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Item Not Found";
                 message = "Sorry";
                 tray.setTitle(tilte);

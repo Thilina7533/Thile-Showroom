@@ -1,8 +1,10 @@
 package bo.custom.Impl;
 
+import TM.dtmTM;
 import bo.custom.PlaceOrderBO;
 import dao.DAOFactory;
 import dao.custom.*;
+import dao.custom.impl.PaymentDAOImpl;
 import db.DBConnection;
 import dto.*;
 import entity.*;
@@ -11,6 +13,7 @@ import javafx.collections.ObservableList;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.UUID;
 
 public class PlaceOrderBOImpl implements PlaceOrderBO {
     CashierDAO cashierDAO = (CashierDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.CASHIER);
@@ -18,7 +21,7 @@ public class PlaceOrderBOImpl implements PlaceOrderBO {
     OrdersDAO ordersDAO = (OrdersDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ORDER);
     OrderdetailDAO orderdetailDAO = (OrderdetailDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ORDERDETAILS);
     QueryDAO queryDAO = (QueryDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.QUERYDAO);
-
+    PaymentDAO paymentDAO = new PaymentDAOImpl();
 
 
     @Override
@@ -65,16 +68,19 @@ public class PlaceOrderBOImpl implements PlaceOrderBO {
         boolean add = ordersDAO.add(orders);
         try {
             if (add) {
-                for (OrderdetailDTO ord : dto.getAllOrderDetail()) {
-                    Orderdetail orderTable = new Orderdetail(ord.getOrderID(), ord.getItemCode(), ord.getOrderQTY().toString(), ord.getUnitPrice().toString());
+                for (dtmTM ord : dto.getAllOrderDetail()) {
+                    Orderdetail orderTable = new Orderdetail(dto.getOrderID(), ord.getCode(), ord.getQTY(), ord.getPrice());
                     boolean response = orderdetailDAO.add(orderTable);
                     if (!response) {
                         connection.rollback();
-
                         return false;
                     }else{
-
-
+                        boolean b = paymentDAO.add(new Payment(createSalt(),dto.getCustName(), dto.getAmount(), dto.getDiscount(), dto.getOrderID() ));
+//
+                        if (b){
+                            connection.commit();
+                            return true;
+                        }
                     }
                 }
                 connection.commit();
@@ -104,5 +110,9 @@ public class PlaceOrderBOImpl implements PlaceOrderBO {
     @Override
     public int getRowCount() throws ClassNotFoundException, SQLException {
         return ordersDAO.getRowCount();
+    }
+    public String createSalt() {
+        String ts = String.valueOf(System.currentTimeMillis());
+        return "A"+ ts.trim();
     }
 }

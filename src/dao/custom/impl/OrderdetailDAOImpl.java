@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class OrderdetailDAOImpl implements OrderdetailDAO {
     @Override
     public boolean add(Orderdetail ID) throws ClassNotFoundException, SQLException {
-        String sql = "insert into orderdetail values(?,?,?,?,?)";
+        String sql = "insert into orderdetail values(?,?,?,?)";
         return CrudUtil.executeUpdate(sql,ID.getOrderID(),ID.getItemCode(),ID.getOrderQTY(),ID.getUnitPrice());
     }
 

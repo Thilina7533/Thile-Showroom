@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class PaymentDAOImpl implements PaymentDAO {
     @Override
     public boolean add(Payment ID) throws ClassNotFoundException, SQLException {
-        String sql = "insert into payment  values (?,?,?,?,?,?)";
+        String sql = "insert into payment  values (?,?,?,?,?)";
         return CrudUtil.executeUpdate(sql, ID.getPayID(), ID.getCustName(), ID.getAmount(), ID.getDiscount(), ID.getOrderID());
     }
     @Override

@@ -8,6 +8,8 @@ import com.jfoenix.controls.JFXTextField;
 import dto.CustomerDTO;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -122,6 +124,7 @@ public class AddCustomerFormController implements Initializable {
             AnimationType type = AnimationType.POPUP;
             tray.setAnimationType(type);
             if (isAdded) {
+                (new Alert(Alert.AlertType.CONFIRMATION, "Customer Added Successfully", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Added Successful";
                 message = "Customer Is Added";
                 tray.setTitle(tilte);
@@ -130,6 +133,7 @@ public class AddCustomerFormController implements Initializable {
                 loadAllCustomer();
 
             } else {
+                (new Alert(Alert.AlertType.ERROR, "Customer Not Added ", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Added Un Successful";
                 message = "Customer Is Not Added";
                 tray.setTitle(tilte);
@@ -163,6 +167,7 @@ public class AddCustomerFormController implements Initializable {
             AnimationType type = AnimationType.POPUP;
             tray.setAnimationType(type);
             if (isDelete) {
+                (new Alert(Alert.AlertType.CONFIRMATION, "Customer Delete Successfully", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Delete Success";
                 message = "Customer Is Deleted";
                 tray.setTitle(tilte);
@@ -170,6 +175,7 @@ public class AddCustomerFormController implements Initializable {
                 tray.setNotificationType(NotificationType.SUCCESS);
                 loadAllCustomer();
             } else {
+                (new Alert(Alert.AlertType.ERROR, "Customer Not Delete", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Customer Not Found";
                 message = "Sorry";
                 tray.setTitle(tilte);
@@ -248,6 +254,7 @@ public class AddCustomerFormController implements Initializable {
             AnimationType type = AnimationType.POPUP;
             tray.setAnimationType(type);
             if (updateCustomer) {
+                (new Alert(Alert.AlertType.CONFIRMATION, "Customer Update Successfully", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Update Successful";
                 message = "Customer Is Updated";
 
@@ -256,6 +263,7 @@ public class AddCustomerFormController implements Initializable {
                 tray.setNotificationType(NotificationType.SUCCESS);
                 loadAllCustomer();
             } else {
+                (new Alert(Alert.AlertType.ERROR, "Customer Not Update ", new ButtonType[]{ButtonType.OK})).show();
                 tilte = "Update Un Successful";
                 message = "Customer Is Not Updated";
 

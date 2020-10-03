@@ -1,5 +1,7 @@
 package dto;
 
+import TM.dtmTM;
+
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,11 +16,12 @@ public class OrdersDTO {
     private String custAddress;
     private String custEmail;
     private String castID;
-    private ArrayList<OrderdetailDTO> allOrderDetail;
+    private ArrayList<dtmTM> allOrderDetail;
 
+    private Double amount;
+    private String Discount;
 
-
-    public OrdersDTO(String orderID, String orderDate, String orderTime, String custName, String custPhoneNo, String custAddress, String custEmail, String castID, ArrayList<OrderdetailDTO> allOrderDetail) {
+    public OrdersDTO(String orderID, String orderDate, String orderTime, String custName, String custPhoneNo, String custAddress, String custEmail, String castID, ArrayList<dtmTM> allOrderDetail, Double amount, String discount) {
         this.orderID = orderID;
         this.orderDate = orderDate;
         this.orderTime = orderTime;
@@ -28,6 +31,8 @@ public class OrdersDTO {
         this.custEmail = custEmail;
         this.castID = castID;
         this.allOrderDetail = allOrderDetail;
+        this.amount = amount;
+        Discount = discount;
     }
 
     public String getOrderID() {
@@ -94,11 +99,27 @@ public class OrdersDTO {
         this.castID = castID;
     }
 
-    public ArrayList<OrderdetailDTO> getAllOrderDetail() {
+    public ArrayList<dtmTM> getAllOrderDetail() {
         return allOrderDetail;
     }
 
-    public void setAllOrderDetail(ArrayList<OrderdetailDTO> allOrderDetail) {
+    public void setAllOrderDetail(ArrayList<dtmTM> allOrderDetail) {
         this.allOrderDetail = allOrderDetail;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public String getDiscount() {
+        return Discount;
+    }
+
+    public void setDiscount(String discount) {
+        Discount = discount;
     }
 }
