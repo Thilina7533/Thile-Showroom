@@ -1,6 +1,7 @@
 package bo.custom;
 
 import bo.SuperBO;
+import bo.custom.Impl.PlaceOrderBOImpl;
 import dto.CashierDTO;
 import dto.CustomDTO;
 import dto.ItemDTO;
@@ -24,5 +25,7 @@ public interface PlaceOrderBO extends SuperBO {
     ObservableList<CustomDTO> searchOrderFromID(String id) throws ClassNotFoundException, SQLException, Exception;
 
     int getRowCount()throws ClassNotFoundException,SQLException;
+
+   // boolean updateStock(ArrayList<ItemDTO> orderItems) throws SQLException, ClassNotFoundException;
 
 }

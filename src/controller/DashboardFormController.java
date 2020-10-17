@@ -2,6 +2,7 @@ package controller;
 
 
 import db.DBConnection;
+import dto.PaymentDTO;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,17 +11,26 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import static javafx.collections.FXCollections.checkedObservableSet;
 import static javafx.collections.FXCollections.observableArrayList;
 
 public class DashboardFormController implements Initializable {
     public Label txtTotalCustomers;
-    @FXML
-    private AreaChart<?, ?> AreaChart;
+    public Label TotalOrders;
+    public Label TotalSales;
+    public Label SoldItem;
+    public PaymentDTO paymentDTOS;
+    public AreaChart areaChart;
+
     @FXML
     private javafx.scene.chart.PieChart PieChart;
     private void initInfo() throws SQLException, ClassNotFoundException {
@@ -33,20 +43,49 @@ public class DashboardFormController implements Initializable {
             int customerCount = set.getInt(1);
             txtTotalCustomers.setText(String.valueOf(customerCount));
         }
+
+    }
+    private void orders () throws SQLException, ClassNotFoundException {
+        ResultSet set = DBConnection.getInstance().
+                getConnection().
+                prepareStatement
+                        ("SELECT COUNT(orderID) FROM orders")
+                .executeQuery();
+        if (set.next()) {
+            int customerCount = set.getInt(1);
+            TotalOrders.setText(String.valueOf(customerCount));
+        }
+    }
+    private void sales () throws SQLException, ClassNotFoundException {
+        ResultSet set = DBConnection.getInstance().
+                getConnection().
+                prepareStatement
+                        ("SELECT \n" +
+                                "    SUM(amount) SalesQuantity\n" +
+                                "FROM\n" +
+                                "    payment")
+                .executeQuery();
+        if (set.next()) {
+            int customerCount = set.getInt(1);
+            TotalSales.setText(String.valueOf(customerCount));
+        }
+    }
+    private void soldItem () throws SQLException, ClassNotFoundException {
+        ResultSet set = DBConnection.getInstance().
+                getConnection().
+                prepareStatement
+                        ("SELECT \n" +
+                                "    SUM(orderQTY) SalesQuantity\n" +
+                                "FROM\n" +
+                                "    Orderdetail")
+                .executeQuery();
+        if (set.next()) {
+            int customerCount = set.getInt(1);
+            SoldItem.setText(String.valueOf(customerCount));
+        }
     }
 
-
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        try {
-            initInfo();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
+    public void loadPieChart() throws SQLException, ClassNotFoundException {
         ObservableList<PieChart.Data> pieChartData = observableArrayList(
                 new PieChart.Data("January", 13),
                 new PieChart.Data("February", 25),
@@ -71,7 +110,50 @@ public class DashboardFormController implements Initializable {
         series.getData().add(new XYChart.Data("5",56));
         series.getData().add(new XYChart.Data("6",76));
         series.getData().add(new XYChart.Data("7",44));
-        AreaChart.getData().add(series);
+        areaChart.getData().add(series);
 
     }
-}
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            initInfo();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            orders ();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            sales ();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            soldItem ();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            loadPieChart();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    }
+

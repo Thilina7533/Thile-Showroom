@@ -2,7 +2,6 @@ package bo.custom;
 
 import bo.SuperBO;
 import dto.CashierDTO;
-import dto.CustomerDTO;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
@@ -23,5 +22,6 @@ public interface CashierBO extends SuperBO {
     ObservableList<CashierDTO> getAllCashier() throws ClassNotFoundException, SQLException;
 
     int getRowCount()throws ClassNotFoundException,SQLException;
+
 
 }

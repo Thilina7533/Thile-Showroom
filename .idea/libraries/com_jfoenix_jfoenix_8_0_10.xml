@@ -2,7 +2,7 @@
   <library name="com.jfoenix:jfoenix:8.0.10" type="repository">
     <properties maven-id="com.jfoenix:jfoenix:8.0.10" />
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/jfoenix/jfoenix/8.0.10/jfoenix-8.0.10.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/com/jfoenix/jfoenix/8.0.10/jfoenix-8.0.10.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

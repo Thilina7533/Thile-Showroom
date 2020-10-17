@@ -4,6 +4,7 @@ import dto.ItemDTO;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public interface ItemBO extends SuperBO {
 
@@ -18,6 +19,8 @@ public interface ItemBO extends SuperBO {
     ObservableList<ItemDTO> getAllItem() throws ClassNotFoundException, SQLException;
 
     int getRowCount()throws ClassNotFoundException,SQLException;
+
+    //  boolean updateStock(ArrayList<ItemDTO> orderItems) throws SQLException, ClassNotFoundException;
 
 }
 

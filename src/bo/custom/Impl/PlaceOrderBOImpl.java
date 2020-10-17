@@ -13,7 +13,8 @@ import javafx.collections.ObservableList;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class PlaceOrderBOImpl implements PlaceOrderBO {
     CashierDAO cashierDAO = (CashierDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.CASHIER);
@@ -23,6 +24,13 @@ public class PlaceOrderBOImpl implements PlaceOrderBO {
     QueryDAO queryDAO = (QueryDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.QUERYDAO);
     PaymentDAO paymentDAO = new PaymentDAOImpl();
 
+    public static String getRandomNumberString() {
+        {
+            Random rand = new Random();
+            int rand_int1 = rand.nextInt(100000);
+            return String.valueOf(rand_int1);
+        }
+    }
 
     @Override
     public ObservableList<CashierDTO> getAllCashier() throws ClassNotFoundException, SQLException {
@@ -46,7 +54,6 @@ public class PlaceOrderBOImpl implements PlaceOrderBO {
         return allItem;
     }
 
-
     @Override
     public CashierDTO searchCashier(String id) throws Exception {
         Cashier search = cashierDAO.search(id);
@@ -68,21 +75,19 @@ public class PlaceOrderBOImpl implements PlaceOrderBO {
         boolean add = ordersDAO.add(orders);
         try {
             if (add) {
-                for (dtmTM ord : dto.getAllOrderDetail()) {
-                    Orderdetail orderTable = new Orderdetail(dto.getOrderID(), ord.getCode(), ord.getQTY(), ord.getPrice());
-                    boolean response = orderdetailDAO.add(orderTable);
-                    if (!response) {
-                        connection.rollback();
-                        return false;
-                    }else{
-                        boolean b = paymentDAO.add(new Payment(createSalt(),dto.getCustName(), dto.getAmount(), dto.getDiscount(), dto.getOrderID() ));
-//
-                        if (b){
+
+                boolean isOrderDetailsAdded= addOrderDetail(dto);
+                if (isOrderDetailsAdded) {
+                    boolean isPaymentAdded = paymentDAO.add(new Payment(getRandomNumberString(), dto.getCustName(), dto.getAmount(), dto.getDiscount(), dto.getOrderID()));
+                    if (isPaymentAdded) {
+                        boolean isUpdateStock = updateStock(dto.getAllOrderDetail());
+                        if (isUpdateStock) {
                             connection.commit();
                             return true;
                         }
                     }
                 }
+
                 connection.commit();
                 return true;
 
@@ -94,6 +99,28 @@ public class PlaceOrderBOImpl implements PlaceOrderBO {
         } finally {
             connection.setAutoCommit(true);
         }
+    }
+
+    private boolean addOrderDetail(OrdersDTO dto) throws SQLException, ClassNotFoundException {
+        for (dtmTM ord : dto.getAllOrderDetail()) {
+            Orderdetail orderTable = new Orderdetail(dto.getOrderID(), ord.getCode(), ord.getQTY(), ord.getPrice());
+            System.out.println("");
+            boolean isAddedOrderDetails = orderdetailDAO.add(orderTable);
+            if (!isAddedOrderDetails) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean updateStock(ArrayList<dtmTM> orderItems) throws SQLException, ClassNotFoundException {
+        for (dtmTM orderDetail : orderItems) {
+            boolean isUpdateStock = itemDAO.updateStock(orderDetail);
+            if (!isUpdateStock) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -110,9 +137,5 @@ public class PlaceOrderBOImpl implements PlaceOrderBO {
     @Override
     public int getRowCount() throws ClassNotFoundException, SQLException {
         return ordersDAO.getRowCount();
-    }
-    public String createSalt() {
-        String ts = String.valueOf(System.currentTimeMillis());
-        return "A"+ ts.trim();
     }
 }

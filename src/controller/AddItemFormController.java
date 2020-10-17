@@ -22,6 +22,8 @@ import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
 import javax.swing.table.DefaultTableModel;
+
+
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;

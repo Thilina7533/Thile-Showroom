@@ -3,6 +3,8 @@ package controller;
 import animatefx.animation.FadeIn;
 import bo.BOFactory;
 import bo.custom.CashierBO;
+import bo.custom.Impl.LoginBOImpl;
+import bo.custom.LoginBO;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import dto.CashierDTO;
@@ -23,6 +25,7 @@ import tray.notification.TrayNotification;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
@@ -63,7 +66,6 @@ public class LoginFormController {
                 String message = "WELCOME TO KITHSIRI TILES MANEGMET SYSTEM ";
                 tray.notification.TrayNotification tray = new TrayNotification();
                 AnimationType type = AnimationType.POPUP;
-
                 tray.setAnimationType(type);
                 tray.setTitle(tilte);
                 tray.setMessage(message);
@@ -71,10 +73,37 @@ public class LoginFormController {
                 tray.showAndDismiss(Duration.millis(3000));
 
             } else {
-                Stage window = (Stage) this.root.getScene().getWindow();
-                window.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/CashierForm.fxml"))));
-                window.centerOnScreen();
+                LoginBO loginBO = new LoginBOImpl();
+                try {
+                    CashierDTO cashierDTO = loginBO.getValidated(txtUserName.getText());
+                    System.out.println(cashierDTO.getCastID()+" id from login form");
+                    System.out.println(cashierDTO.getCastlogin() + " userName");
+                    System.out.println(cashierDTO.getCastPassword() + " password");
 
+                    if (cashierDTO.getCastlogin().equals(txtUserName.getText()) &&
+                            cashierDTO.getCastPassword().equals(txtPassword.getText())) {
+
+                        Stage window = (Stage) this.root.getScene().getWindow();
+//                        window.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/CashierForm.fxml"))));
+                        FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("../view/CashierForm.fxml"));
+                        Parent parent =  fxmlLoader.load();
+                        CashierFormController controller = fxmlLoader.getController();
+                        System.out.println("sending data");
+                        controller.setCashierID(cashierDTO.getCastID());
+                        window.setScene(new Scene(parent));
+                        window.centerOnScreen();
+                        window.show();
+
+                    } else {
+                        System.out.println("waradi ukanno");
+                    }
+                } catch (NullPointerException e) {
+                    System.out.println("user name waradi ballo");
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
 //                txtUserName.setFocusColor(Paint.valueOf("red"));
 //                txtUserName.requestFocus();
 //                String tilte = "Sign In";

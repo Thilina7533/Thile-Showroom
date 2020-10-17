@@ -3,15 +3,11 @@ package bo.custom.Impl;
 import bo.custom.CashierBO;
 import dao.DAOFactory;
 import dao.custom.CashierDAO;
-import dao.custom.CustomerDAO;
 import dto.CashierDTO;
-import dto.CustomerDTO;
 import entity.Cashier;
-import entity.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.awt.*;
 import java.sql.SQLException;
 
 public class CashierIBOmpl implements CashierBO {
@@ -52,4 +48,6 @@ public class CashierIBOmpl implements CashierBO {
     public int getRowCount() throws ClassNotFoundException, SQLException {
         return cashierDAO.getRowCount();
     }
+
+
 }

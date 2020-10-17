@@ -18,4 +18,5 @@ public interface CrudDAO<T,ID>  extends SuperDAO{
     T search(ID ID) throws ClassNotFoundException, SQLException;
 
     ObservableList<T> getAll() throws ClassNotFoundException, SQLException;
+
 }

@@ -27,6 +27,16 @@ public class CashierDAOImpl implements CashierDAO {
     }
 
     @Override
+    public Cashier validate(String userName) throws SQLException, ClassNotFoundException {
+        String sql = "SELECT castID , caslogin , caspassword FROM cashier WHERE caslogin=?";
+        ResultSet resultSet = CrudUtil.executeQuery(sql, userName);
+        if(resultSet.next()){
+            return new Cashier(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3));
+        }
+        return null;
+    }
+
+    @Override
     public boolean add(Cashier ID) throws ClassNotFoundException, SQLException {
         String sql = "insert into cashier values(?,?,?,?,?,?,?)";
         return CrudUtil.executeUpdate(sql, ID.getCastID(), ID.getCastName(), ID.getCastBirthDay(), ID.getCastAddress(), ID.getCastPhoto(), ID.getCastlogin(), ID.getCastPassword());

@@ -143,7 +143,7 @@
                <Font size="21.0" />
             </font>
          </Label>
-         <JFXTextField fx:id="Discount" focusColor="WHITE" labelFloat="true" layoutX="157.0" layoutY="203.0" onKeyReleased="#discountKey" prefHeight="30.0" prefWidth="31.0" unFocusColor="WHITE">
+         <JFXTextField fx:id="Discount" focusColor="WHITE" labelFloat="true" layoutX="157.0" layoutY="203.0" onKeyReleased="#adddiscountKey" prefHeight="30.0" prefWidth="31.0" text="1" unFocusColor="WHITE">
             <font>
                <Font name="System Bold" size="14.0" />
             </font>
@@ -178,7 +178,7 @@
          <DropShadow />
       </effect>
    </Pane>
-   <TableView fx:id="dtm" layoutX="33.0" layoutY="438.0" onMousePressed="#tblMouseClick" onMouseReleased="#tbltemsOnMouoseReleased" prefHeight="324.0" prefWidth="1171.0" stylesheets="@../css/fullpackstyling.css">
+   <TableView fx:id="dtm" layoutX="37.0" layoutY="436.0" onMousePressed="#tblMouseClick" onMouseReleased="#tbltemsOnMouoseReleased" prefHeight="324.0" prefWidth="1171.0" stylesheets="@../css/fullpackstyling.css">
       <columns>
          <TableColumn fx:id="colitemcode" prefWidth="206.0" text="Item Code" />
          <TableColumn fx:id="colitemname" prefWidth="344.0" text="Item Name" />
@@ -191,7 +191,7 @@
          <Font name="System Bold" size="16.0" />
       </font>
    </JFXButton>
-   <JFXButton buttonType="RAISED" layoutX="776.0" layoutY="792.0" prefHeight="52.0" prefWidth="148.0" style="-fx-background-color: #6c5ce7; -fx-background-radius: 30;" text="PRINT BILL" textFill="WHITE">
+   <JFXButton buttonType="RAISED" layoutX="776.0" layoutY="792.0" onAction="#printBillOnAction" prefHeight="52.0" prefWidth="148.0" style="-fx-background-color: #6c5ce7; -fx-background-radius: 30;" text="PRINT BILL" textFill="WHITE">
       <font>
          <Font name="System Bold" size="18.0" />
       </font>

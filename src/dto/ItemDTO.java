@@ -1,6 +1,9 @@
 package dto;
 
-public class ItemDTO {
+import java.util.ArrayList;
+import java.util.stream.Stream;
+
+public class ItemDTO extends ArrayList<ItemDTO> {
     private String itemCode;
     private String suplayerID;
     private String Description;
@@ -18,6 +21,7 @@ public class ItemDTO {
         QtyOnHand = qtyOnHand;
         BatchID = batchID;
     }
+
 
     public String getItemCode() {
         return itemCode;
@@ -73,5 +77,10 @@ public class ItemDTO {
 
     public void setBatchID(String batchID) {
         BatchID = batchID;
+    }
+
+    @Override
+    public Stream<ItemDTO> stream() {
+        return null;
     }
 }

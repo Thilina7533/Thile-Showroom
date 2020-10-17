@@ -4,18 +4,11 @@ import dao.custom.impl.*;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;
-
-    private DAOFactory() {
-
-    }
-
+    private DAOFactory() { }
     public static DAOFactory getInstance() {
         if (daoFactory == null) {
-            daoFactory = new DAOFactory();
-        }
-        return daoFactory;
-    }
-
+            daoFactory = new DAOFactory(); }
+        return daoFactory; }
     public SuperDAO getDAO(DAOFactory.DAOTypes Types) {
         switch (Types) {
             case CUSTOMER:
@@ -36,11 +29,7 @@ public class DAOFactory {
                 return new PaymentDAOImpl();
 
             default:
-                return null;
-        }
-
-    }
-
+                return null; } }
     public enum DAOTypes {
         CUSTOMER, QUERYDAO, ITEM, ORDER, ORDERDETAILS, BATCH, CASHIER, PAYMENT, SUPLAY,
     }

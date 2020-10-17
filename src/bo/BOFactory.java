@@ -6,22 +6,17 @@ public class BOFactory {
     private static BOFactory boFactory;
 
     private BOFactory() {
-
     }
-
     public static BOFactory getInstance() {
         if (boFactory == null) {
             boFactory = new BOFactory();
 
         }
-
         return boFactory;
     }
-
     public enum BOTypes {
-        CUSTOMER, ITEM, ORDER, CASHIER, SUPLAY, PO;
+        CUSTOMER, ITEM, ORDER, CASHIER, SUPLAY,   PO;
     }
-
     public SuperBO getBO(BOTypes types) {
         switch (types) {
             case CUSTOMER:

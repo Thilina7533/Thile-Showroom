@@ -15,5 +15,7 @@
     <orderEntry type="library" name="mysql:mysql-connector-java:8.0.21" level="project" />
     <orderEntry type="library" name="org.controlsfx:controlsfx:8.40.14" level="project" />
     <orderEntry type="library" name="com.jfoenix:jfoenix:8.0.10" level="project" />
+    <orderEntry type="library" name="batik-anim" level="project" />
+    <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
   </component>
 </module>

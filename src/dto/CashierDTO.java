@@ -20,6 +20,12 @@ public class CashierDTO {
         this.castPassword = castPassword;
     }
 
+    public CashierDTO(String castID, String castlogin, String castPassword) {
+        this.castID = castID;
+        this.castlogin = castlogin;
+        this.castPassword = castPassword;
+    }
+
     public String getCastID() {
         return castID;
     }

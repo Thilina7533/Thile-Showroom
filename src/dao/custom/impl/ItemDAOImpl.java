@@ -1,12 +1,15 @@
 package dao.custom.impl;
 
+import TM.dtmTM;
+import dao.CrudDAO;
 import dao.CrudUtil;
 import dao.custom.ItemDAO;
+import db.DBConnection;
 import entity.Item;
-import entity.Orderdetail;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -64,4 +67,11 @@ public class ItemDAOImpl implements ItemDAO {
         ResultSet rst = CrudUtil.executeQuery(SQL, new Object[0]);
         return rst.next() ? rst.getInt(1) : -1;
     }
+
+    @Override
+    public boolean updateStock(dtmTM orderDetail) throws ClassNotFoundException, SQLException {
+        String sql="Update item set QtyOnHand=QtyOnHand-? where itemCode=?";
+        return CrudUtil.executeUpdate(sql,orderDetail.getQTY(),orderDetail.getCode());
+    }
+
 }

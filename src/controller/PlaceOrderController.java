@@ -11,40 +11,38 @@ import bo.custom.PlaceOrderBO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import db.DBConnection;
 import dto.*;
-import entity.Item;
-import entity.Orders;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
-import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 import org.controlsfx.control.textfield.TextFields;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
-import javax.security.auth.RefreshFailedException;
-import javax.swing.*;
+import static javafx.scene.input.KeyCode.I;
 
 public class PlaceOrderController implements Initializable {
     public Label txtDate;
@@ -84,6 +82,7 @@ public class PlaceOrderController implements Initializable {
     int total;
     dtmTM dtmTM;
     private int index;
+    ArrayList<ItemDTO>itemDTOS;
 
     public PlaceOrderController() {
     }
@@ -99,6 +98,7 @@ public class PlaceOrderController implements Initializable {
         reloadCustomer();
         getAllItem();
         setTxtorderID();
+        TextFields.bindAutoCompletion(txtItemCode, allItem);
     }
 
     public void setTxtorderID() {
@@ -176,7 +176,7 @@ public class PlaceOrderController implements Initializable {
             ItemDTO searchItem = itemBO.searchItem(a[0]);
             txtItemName.setText(searchItem.getDescription());
             txtPrice.setText(searchItem.getUnitPrice());
-            TextFields.bindAutoCompletion(txtItemCode, allItem);
+
             if (searchItem != null) {
 
 
@@ -235,6 +235,11 @@ public class PlaceOrderController implements Initializable {
             total += Double.parseDouble(txtPrice.getText());
         }
         txtTotal.setText(String.valueOf(total));
+        finalTotaladd();
+    }
+
+    private void finalTotaladd() {
+        finalTotal.setText(txtTotal.getText());
     }
 
     public void RemoveOnAction(ActionEvent actionEvent) {
@@ -248,14 +253,9 @@ public class PlaceOrderController implements Initializable {
         int total = 0;
         for (dtmTM dtmTM : items) {
             qty += Integer.parseInt(dtmTM.getQTY());
-            System.out.println(Integer.parseInt(dtmTM.getQTY()) + " qty");
             double p = Double.parseDouble(dtmTM.getPrice());
-            System.out.println(p + " p");
             total += p * Integer.parseInt(dtmTM.getQTY());
-//            System.out.println(Integer.parseInt(dtmTM.getPrice()+" price"));
         }
-        System.out.println(qty + "total qty");
-        System.out.println(total + "total total");
         txtQtyCount.setText(qty + "");
         txtTotal.setText(total + "");
     }
@@ -276,17 +276,11 @@ public class PlaceOrderController implements Initializable {
 //        }
 //    }
 
-    public void discountKey(KeyEvent keyEvent) {
 
-
-    }
-
-    public void placeOrderOnAction(ActionEvent actionEvent) {
+    public boolean placeOrderOnAction(ActionEvent actionEvent) {
 
         placeOrderBO = (PlaceOrderBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.PO);
-        //mona huttakda me
 
-        //OrderTable details
         String orderID = txtOrderId.getText();
         String orderDate = txtDate.getText();
         String orderTime = txtTime.getText();
@@ -307,15 +301,21 @@ public class PlaceOrderController implements Initializable {
 
                 OrderDetailFieldRest();
                 (new Alert(Alert.AlertType.CONFIRMATION, "Order Successfully", new ButtonType[]{ButtonType.OK})).show();
+                String tilte = "ORDER SUCCESS";
+                String message = "SAY THANK YOU FOR CUSTOMER";
                 tray.notification.TrayNotification tray = new TrayNotification();
                 AnimationType type = AnimationType.POPUP;
+
                 tray.setAnimationType(type);
-                tray.setMessage("Successfully");
+                tray.setTitle(tilte);
+                tray.setMessage(message);
                 tray.setNotificationType(NotificationType.SUCCESS);
                 tray.showAndDismiss(Duration.millis(3000));
                 System.out.println("order placed");
+                setTxtorderID();
+
             } else {
-                System.out.println("fuck shit");
+                (new Alert(Alert.AlertType.ERROR, "Order  Unsuccessfully", new ButtonType[]{ButtonType.OK})).show();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -323,6 +323,7 @@ public class PlaceOrderController implements Initializable {
         //}
 
 
+        return false;
     }
 
 
@@ -336,9 +337,46 @@ public class PlaceOrderController implements Initializable {
         txtCustPhone.setText(null);
         txtCustAddress.setText(null);
         txtCustEmail.setText(null);
+        txtTotal.setText(null);
+        txtQtyCount.setText(null);
+        finalTotal.setText(null);
+        txtItemCode.setText(null);
+        txtItemName.setText(null);
+        txtPrice.setText(null);
+        txtQTY.setText(null);
+    }
+
+    public void adddiscountKey(KeyEvent keyEvent) {
+
+    }
+
+    public void printBillOnAction(ActionEvent actionEvent) {
+
+        try {
+            InputStream is = this.getClass().getResourceAsStream("/reports/invoicee.jrxml");
+            JasperReport jr = JasperCompileManager.compileReport(is);
+            HashMap<String, Object> hs = new HashMap<>();
+            hs.put("itemCode", colitemcode.getText());
+            hs.put("itemName", colitemname.getText());
+            hs.put("QTY", colqty.getText());
+            hs.put("Price", colprice.getText());
+            hs.put("OrderID", txtOrderId.getText());
+
+            JasperPrint jp = JasperFillManager.fillReport(jr, hs, DBConnection.getInstance().getConnection());
+            JasperViewer.viewReport(jp);
+
+        } catch (JRException | ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public void setCashierID(String cashierID) {
+        txtCashierID.setText(cashierID);
+        System.out.println(cashierID+" cashierID");
     }
 }
-
 
 
 

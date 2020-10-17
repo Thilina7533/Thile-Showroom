@@ -35,7 +35,7 @@
             </JFXButton>
             <Pane prefHeight="85.0" prefWidth="185.0">
                <children>
-                  <JFXButton buttonType="RAISED" layoutY="545.0" prefHeight="81.0" prefWidth="185.0" style="-fx-background-color: black;" text="LOGOUT" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutY="545.0" onAction="#btnLogOutOnAction" prefHeight="81.0" prefWidth="185.0" style="-fx-background-color: black;" text="LOGOUT" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="32.0" />
                      </font>

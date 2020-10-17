@@ -21,6 +21,12 @@ public class Cashier {
         this.castPassword = castPassword;
     }
 
+    public Cashier(String castID, String castlogin, String castPassword) {
+        this.castID = castID;
+        this.castlogin = castlogin;
+        this.castPassword = castPassword;
+    }
+
     public String getCastID() {
         return castID;
     }

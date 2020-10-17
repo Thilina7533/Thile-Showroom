@@ -6,8 +6,12 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+//import nickyb.sqleonardo.environment.Application;
 
 import java.util.Objects;
+
+import static javafx.scene.paint.Color.TRANSPARENT;
+import static org.jdesktop.swingx.graphics.BlendComposite.Color;
 
 
 public class AppInitializer extends Application {
@@ -29,7 +33,7 @@ public class AppInitializer extends Application {
             primaryStage.setScene(scene);
             primaryStage.show();
             new FadeInDownBig(root).play();
-            scene.setFill(Color.TRANSPARENT);
+            scene.setFill(TRANSPARENT);
             root.setOnMousePressed(event -> {
                 xOffset = event.getSceneX();
                 yOffset = event.getSceneY();
