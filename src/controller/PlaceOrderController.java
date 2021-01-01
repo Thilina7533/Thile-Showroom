@@ -37,6 +37,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
+import org.controlsfx.control.spreadsheet.SpreadsheetViewSelectionModel;
 import org.controlsfx.control.textfield.TextFields;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
@@ -371,6 +372,7 @@ public class PlaceOrderController implements Initializable {
 
 
     }
+    
 
     public void setCashierID(String cashierID) {
         txtCashierID.setText(cashierID);
